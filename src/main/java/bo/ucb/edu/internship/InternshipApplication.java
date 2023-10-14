@@ -1,13 +1,13 @@
-package bo.ucb.edu.internship.demo;
+package bo.ucb.edu.internship;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class InternshipApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(InternshipApplication.class, args);
 	}
 
 }
