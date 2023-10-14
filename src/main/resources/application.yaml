@@ -1,0 +1,16 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bddinternship
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        ddl-auto: none
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: true
