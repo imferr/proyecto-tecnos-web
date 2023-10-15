@@ -1,11 +1,11 @@
-## INTERNSHIP BACKEND Proyecto de Tecnologías Web
+# INTERNSHIP BACKEND Proyecto de Tecnologías Web
 
 <div align="center">
     <img src="https://www.ovhcloud.com/sites/default/files/styles/text_media_horizontal/public/2021-09/ECX-1909_Hero_PostgreSQL_600x400%402x.png" alt="Logo" width="auto" height="100">
     <img src="https://miro.medium.com/v2/resize:fit:700/0*R60lnmJl4hanOBaJ.png" alt="Logo" width="auto" height="100">
 </div>
 
-# Requerimientos
+## Requerimientos
 
 Para poder hacer correr el proyecto se necesita tener instalado lo siguiente:
 
@@ -13,7 +13,7 @@ Para poder hacer correr el proyecto se necesita tener instalado lo siguiente:
 - Maven 3.8.2
 - PostgreSQL 13.4
 
-# Configuración de la base de datos
+## Configuración de la base de datos
 
 Para poder hacer correr el proyecto se necesita tener una base de datos en PostgreSQL con el nombre de `bddinternship` y con el usuario `postgres` y contraseña `123456`. Si se desea cambiar estos valores se debe modificar el archivo `application.yaml` en la carpeta `src/main/resources`.
 
@@ -64,7 +64,7 @@ Continue con la configuración de la base de datos siguiendo los siguientes paso
 
     Dentro del proyecto encontrará una carpeta llamada `bdd` con un archivo llamado `bdd.sql`. Copie el contenido de este archivo y ejecútelo en el shell de PostgreSQL.
 
-# Ejecutar el proyecto en Spring
+## Ejecutar el proyecto en Spring
 
 1. Para construir el proyecto ejecute el siguiente comando:
 
