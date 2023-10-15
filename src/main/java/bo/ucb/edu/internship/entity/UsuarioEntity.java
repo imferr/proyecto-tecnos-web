@@ -1,24 +1,47 @@
-package bo.ucb.edu.internship.dto;
+package bo.ucb.edu.internship.entity;
 
-public class UsuarioDTO {
-    private int userId;
-    private String name;
-    private String lastName;
-    private String email;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuario")
+
+public class UsuarioEntity {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "usuarioid")
+    private Integer userId;
+
+    @Column(name = "contrasenia", length = 20, nullable = false)
     private String password;
+
+    @Column(name = "nombre", length = 50, nullable = false)
+    private String name;
+
+    @Column(name = "apellido", length = 50, nullable = false)
+    private String lastName;
+
+    @Column(name = "correo", length = 50, nullable = false)
+    private String email;
+
+    @Column(name = "telefono", length = 20, nullable = false)
     private String phone;
+
+    @Column(name = "direccion", length = 50, nullable = false)
     private String address;
+
+    @Column(name = "carnet", length = 30, nullable = false)
     private String carnet;
 
-    public UsuarioDTO() {
+    public UsuarioEntity() {
     }
 
-    public UsuarioDTO(Integer userId, String name, String lastName, String email, String password, String phone, String address, String carnet) {
+    public UsuarioEntity(Integer userId, String password, String name, String lastName, String email, String phone, String address, String carnet) {
         this.userId = userId;
+        this.password = password;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.phone = phone;
         this.address = address;
         this.carnet = carnet;
@@ -32,17 +55,17 @@ public class UsuarioDTO {
 
     public String getName() {
         return name;
-    }  
+    }
 
     public String getLastName() {
         return lastName;
     }
 
-    public String getEmail() {
+    public String getEmail(){
         return email;
     }
 
-    public String getPassword() {
+    public String getPassword(){
         return password;
     }
 
@@ -64,15 +87,15 @@ public class UsuarioDTO {
         this.userId = userId;
     }
 
-    public void setName(String name) {
+    public void setName(String name){
         this.name = name;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName){
         this.lastName = lastName;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email){
         this.email = email;
     }
 
@@ -94,12 +117,12 @@ public class UsuarioDTO {
 
     @Override
     public String toString() {
-        return "UserDTO{" +
+        return "UsuarioEntity{" +
                 "userId=" + userId +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password=" + password +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
                 ", carnet='" + carnet + '\'' +

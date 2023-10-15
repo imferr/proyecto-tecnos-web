@@ -2,23 +2,23 @@ package bo.ucb.edu.internship.dto;
 
 public class EvaluadorDTO {
 
-    private int assessorId;
+    private int evaluatorId;
     private UsuarioDTO user;
     private TipoUsuarioDTO typeUser;
 
     public EvaluadorDTO() {
     }
 
-    public EvaluadorDTO(int assessorId, UsuarioDTO user, TipoUsuarioDTO typeUser) {
-        this.assessorId = assessorId;
+    public EvaluadorDTO(int evaluatorId, UsuarioDTO user, TipoUsuarioDTO typeUser) {
+        this.evaluatorId = evaluatorId;
         this.user = user;
         this.typeUser = typeUser;
     }
 
     // getters
 
-    public int getAssessorId() {
-        return assessorId;
+    public int getevaluatorId() {
+        return evaluatorId;
     }
 
     public UsuarioDTO getUser() {
@@ -31,8 +31,8 @@ public class EvaluadorDTO {
 
     // setters
 
-    public void setAssessorId(int assessorId) {
-        this.assessorId = assessorId;
+    public void setevaluatorId(int evaluatorId) {
+        this.evaluatorId = evaluatorId;
     }
 
     public void setUser(UsuarioDTO user) {
@@ -46,7 +46,7 @@ public class EvaluadorDTO {
     @Override
     public String toString(){
         return "AssessorDTO{" +
-                "assessorId=" + assessorId +
+                "evaluatorId=" + evaluatorId +
                 ", user=" + user +
                 ", typeUser=" + typeUser +
                 '}';

@@ -3,7 +3,7 @@ package bo.ucb.edu.internship.dto;
 public class AdministradorDTO {
 
     private int adminId;
-    private String workPosition;
+    private String position;
     private EmpresaDTO company;
     private UsuarioDTO user;
     private TipoUsuarioDTO typeUser;
@@ -11,9 +11,9 @@ public class AdministradorDTO {
     public AdministradorDTO() {
     }
 
-    public AdministradorDTO(int adminId, String workPosition, EmpresaDTO company, UsuarioDTO user, TipoUsuarioDTO typeUser) {
+    public AdministradorDTO(int adminId, String position, EmpresaDTO company, UsuarioDTO user, TipoUsuarioDTO typeUser) {
         this.adminId = adminId;
-        this.workPosition = workPosition;
+        this.position = position;
         this.company = company;
         this.user = user;
         this.typeUser = typeUser;
@@ -25,8 +25,8 @@ public class AdministradorDTO {
         return adminId;
     }
 
-    public String getWorkPosition() {
-        return workPosition;
+    public String getposition() {
+        return position;
     }
 
     public EmpresaDTO getCompany() {
@@ -47,8 +47,8 @@ public class AdministradorDTO {
         this.adminId = adminId;
     }
 
-    public void setWorkPosition(String workPosition) {
-        this.workPosition = workPosition;
+    public void setposition(String position) {
+        this.position = position;
     }
 
     public void setCompany(EmpresaDTO company) {
@@ -68,7 +68,7 @@ public class AdministradorDTO {
     public String toString() {
         return "AdministratorDTO{" +
                 "adminId=" + adminId +
-                ", workPosition='" + workPosition + '\'' +
+                ", position='" + position + '\'' +
                 ", company=" + company +
                 ", user=" + user +
                 ", typeUser=" + typeUser +

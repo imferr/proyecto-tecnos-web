@@ -1,18 +1,36 @@
-package bo.ucb.edu.internship.dto;
+package bo.ucb.edu.internship.entity;
 
-public class EmpresaDTO {
+import jakarta.persistence.*;
 
-    private int companyId;
-    private String companyName;
-    private String typeAgreement;
-    private String requirements;
-    private String phone;
-    private String email;
+@Entity
+@Table(name = "institutionempresa")
+
+public class EmpresaEntity {
     
-    public EmpresaDTO() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "empresaid")
+    private Integer companyId;
+
+    @Column(name = "nombre_empresa", length = 50, nullable = false)
+    private String companyName;
+
+    @Column(name = "tipo_convenio", length = 30, nullable = false)
+    private String typeAgreement;
+
+    @Column(name = "requisito_convenio", length = 50, nullable = false)
+    private String requirements;
+
+    @Column(name = "telefono", length = 20, nullable = false)
+    private String phone;
+
+    @Column(name = "correo", length = 50, nullable = false)
+    private String email;
+
+    public EmpresaEntity() {
     }
 
-    public EmpresaDTO(int companyId, String companyName, String typeAgreement, String requirements, String phone, String email) {
+    public EmpresaEntity(Integer companyId, String companyName, String typeAgreement, String requirements, String phone, String email) {
         this.companyId = companyId;
         this.companyName = companyName;
         this.typeAgreement = typeAgreement;
@@ -21,9 +39,7 @@ public class EmpresaDTO {
         this.email = email;
     }
 
-    // getters
-
-    public int getCompanyId() {
+    public Integer getCompanyId() {
         return companyId;
     }
 
@@ -47,9 +63,7 @@ public class EmpresaDTO {
         return email;
     }
 
-    // setters:
-    
-    public void setCompanyId(int companyId) {
+    public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
     }
 
@@ -74,8 +88,8 @@ public class EmpresaDTO {
     }
 
     @Override
-    public String toString(){
-        return "CompanyDTO{" +
+    public String toString() {
+        return "EmpresaEntity{" +
                 "companyId=" + companyId +
                 ", companyName='" + companyName + '\'' +
                 ", typeAgreement='" + typeAgreement + '\'' +
@@ -84,5 +98,4 @@ public class EmpresaDTO {
                 ", email='" + email + '\'' +
                 '}';
     }
-
 }
