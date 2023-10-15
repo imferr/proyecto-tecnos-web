@@ -23,7 +23,7 @@ public class AdministradorEntity {
     @JoinColumn(name = "tipousuario_tipo_usuario", referencedColumnName = "tipo_usuario", nullable = false)
     private TipoUsuarioEntity typeUser;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "institucionempresa_empresaid", referencedColumnName = "empresaid", nullable = false)
     private EmpresaEntity companyId;
 
