@@ -3,7 +3,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "userId": 1,
+  "userId": 2,
   "typeUserId": 1
 }
 

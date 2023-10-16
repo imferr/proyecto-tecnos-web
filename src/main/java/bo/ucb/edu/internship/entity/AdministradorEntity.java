@@ -16,18 +16,26 @@ public class AdministradorEntity {
     private String position;
 
     @ManyToOne
+    @JoinColumn(name = "institucionempresa_empresaid", referencedColumnName = "empresaid", nullable = false)
+    private EmpresaEntity companyId;
+
+    @ManyToOne
     @JoinColumn(name = "usuario_usuarioid", referencedColumnName = "usuarioid", nullable = false)
     private UsuarioEntity userId;
 
     @ManyToOne
-    @JoinColumn(name = "tipousuario_tipo_usuario", referencedColumnName = "tipo_usuario", nullable = false)
-    private TipoUsuarioEntity typeUser;
-
-    @ManyToOne
-    @JoinColumn(name = "institucionempresa_empresaid", referencedColumnName = "empresaid", nullable = false)
-    private EmpresaEntity companyId;
+    @JoinColumn(name = "tipousuario_tipoid", referencedColumnName = "tipoid", nullable = false)
+    private TipoUsuarioEntity typeUserId;
 
     public AdministradorEntity() {
+    }
+
+    public AdministradorEntity(Integer adminId, String position, EmpresaEntity companyId, UsuarioEntity userId, TipoUsuarioEntity typeUserId) {
+        this.adminId = adminId;
+        this.position = position;
+        this.companyId = companyId;
+        this.userId = userId;
+        this.typeUserId = typeUserId;
     }
 
     public Integer getAdminId() {
@@ -38,16 +46,16 @@ public class AdministradorEntity {
         return position;
     }
 
+    public EmpresaEntity getCompanyId() {
+        return companyId;
+    }
+
     public UsuarioEntity getUserId() {
         return userId;
     }
 
-    public TipoUsuarioEntity getTypeUser() {
-        return typeUser;
-    }
-
-    public EmpresaEntity getCompanyId() {
-        return companyId;
+    public TipoUsuarioEntity getTypeUserId() {
+        return typeUserId;
     }
 
     public void setAdminId(Integer adminId) {
@@ -58,26 +66,23 @@ public class AdministradorEntity {
         this.position = position;
     }
 
-    public void setUserId(UsuarioEntity userId) {
-        this.userId = userId;
-    }
-
-    public void setTypeUser(TipoUsuarioEntity typeUser) {
-        this.typeUser = typeUser;
-    }
-
     public void setCompanyId(EmpresaEntity companyId) {
         this.companyId = companyId;
     }
 
-    @Override
-    public String toString() {
-        return "AdministradorEntity{" +
-                "adminId=" + adminId +
-                ", position='" + position + '\'' +
-                ", userId=" + userId +
-                ", typeUser=" + typeUser +
-                ", companyId=" + companyId +
-                '}';
+    public void setUserId(UsuarioEntity userId) {
+        this.userId = userId;
     }
+
+    public void setTypeUserId(TipoUsuarioEntity typeUserId) {
+        this.typeUserId = typeUserId;
+    }
+
+    @Override
+
+    public String toString() {
+        return "AdministradorEntity{" + "adminId=" + adminId + ", position='" + position + '\'' + ", companyId=" + companyId + ", userId=" + userId + ", typeUserId=" + typeUserId + '}';
+    }
+
 }
+

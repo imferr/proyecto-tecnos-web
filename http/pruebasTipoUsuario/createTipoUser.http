@@ -3,5 +3,5 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "typeUser": "Administrador"
+    "typeUser": "Estudiante"
 }

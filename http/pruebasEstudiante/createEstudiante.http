@@ -4,7 +4,7 @@ Accept: application/json
 
 {
     "semester": "Segundo",
-    "carrier": "Ingeniería Informática",
-    "userId": 3,
-    "typeUserId": 1
+    "carrier": "Economia",
+    "userId": 1,
+    "typeUserId": 2
 }

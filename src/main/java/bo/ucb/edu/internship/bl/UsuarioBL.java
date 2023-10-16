@@ -37,18 +37,15 @@ public class UsuarioBL {
         else if (!usuarioEntity.getPhone().matches("[0-9]{8}")) {
             throw new RuntimeException("El telefono no es valido");
         }
-        // mensaje de verificacion de correo:
-        else if (!usuarioEntity.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.$")) {
+        // mensaje de verificacion de correo electronico (que contega @ y .):
+        else if (!usuarioEntity.getEmail().matches("^(.+)@(.+)$")) {
             throw new RuntimeException("El correo no es valido");
-        }// Mensaje de verificación de contrasena
-        else if (usuarioEntity.getPassword().length() < 8) {
-            throw new RuntimeException("La contraseña debe tener más de 8 caracteres");
         }
-        // mensajede verificacion de carnet:
-        else if (!usuarioEntity.getCarnet().matches("[0-9]{8}")) {
-            throw new RuntimeException("El carnet no es valido");
+        // Mensaje de verificación de contrasena (8 caracteres) y que contenga al menos un numero y una letra:
+        else if (!usuarioEntity.getPassword().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
+            throw new RuntimeException("La contraseña debe tener al menos un número y una letra");
         }
-        
+
         UsuarioEntity usuario = new UsuarioEntity();
         usuario.setName(usuarioEntity.getName());
         usuario.setLastName(usuarioEntity.getLastName());
@@ -62,8 +59,6 @@ public class UsuarioBL {
         return usuarioResult;
     }
     
-
-
     // Método para obtener una lista de todos los usuarios registrados:
     public List<UsuarioEntity> getAllUsuarios() {
         return usuarioDAO.findAll();

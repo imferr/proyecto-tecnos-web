@@ -3,6 +3,7 @@ package bo.ucb.edu.internship.api;
 import bo.ucb.edu.internship.dto.AdministradorDTO;
 import bo.ucb.edu.internship.entity.AdministradorEntity;
 import bo.ucb.edu.internship.bl.AdministradorBL;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,10 +29,16 @@ public class AdministradorAPI {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Map<String, Object>> createAdministrador(@RequestBody AdministradorEntity administradorEntity) {
+    public ResponseEntity<Map<String, Object>> createAdministrador(@RequestBody Map<String, Object> request) {
+        
+        String cargo = (String) request.get("cargo");
+        Integer empresaId = (Integer) request.get("companyId");
+        Integer usuarioId = (Integer) request.get("userId");
+        Integer tipoUsuarioId = (Integer) request.get("typeuserId");
+
         LOGGER.log(Level.INFO, "Inicio del metodo registrando administrador");
         try {
-            administradorBL.createAdministrador(administradorEntity);
+            administradorBL.createAdministrador(cargo, empresaId, usuarioId, tipoUsuarioId);
             Map<String, Object> response = new HashMap<>();
             response.put("message", "El administrador se ha registrado exitosamente");
             return new ResponseEntity<>(response, HttpStatus.OK);
@@ -44,39 +52,39 @@ public class AdministradorAPI {
         }
     }
 
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<Map<String, Object>> getAllAdministradores() {
-        LOGGER.log(Level.INFO, "Inicio del método obteniendo todos los administradores");
+        LOGGER.log(Level.INFO, "Inicio del metodo obteniendo administradores");
         try {
+            LOGGER.log(Level.INFO, "Obteniendo administradores");
+            List<AdministradorEntity> administradores = administradorBL.getAllAdministradores();
             Map<String, Object> response = new HashMap<>();
-            LOGGER.log(Level.INFO, "Obteniendo todos los administradores");
-            response.put("administradores", administradorBL.getAllAdministradores());
+            response.put("administradores", administradores);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, "Error al obtener todos los administradores", e);
+            LOGGER.log(Level.WARNING, "Error al obtener administradores", e);
             Map<String, Object> response = new HashMap<>();
-            response.put("message", "No se pudo obtener los administradores");
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         } finally {
-            LOGGER.log(Level.INFO, "Fin del método obteniendo todos los administradores");
+            LOGGER.log(Level.INFO, "Fin del metodo obteniendo administradores");
         }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> findAdministradorById(@PathVariable Integer id) {
-        LOGGER.log(Level.INFO, "Inicio del método obteniendo administrador por id");
+    public ResponseEntity<Map<String, Object>> findAdministradorById(@PathVariable("id") Integer id) {
+        LOGGER.log(Level.INFO, "Inicio del metodo obteniendo administrador por ID");
         try {
+            LOGGER.log(Level.INFO, "Obteniendo administrador por ID");
+            AdministradorEntity administrador = administradorBL.findAdministradorById(id);
             Map<String, Object> response = new HashMap<>();
-            LOGGER.log(Level.INFO, "Obteniendo administrador por id");
-            response.put("administrador", administradorBL.findAdministradorById(id));
+            response.put("administrador", administrador);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, "Error al obtener administrador por id", e);
+            LOGGER.log(Level.WARNING, "Error al obtener administrador por ID", e);
             Map<String, Object> response = new HashMap<>();
-            response.put("message", "No se pudo obtener el administrador");
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         } finally {
-            LOGGER.log(Level.INFO, "Fin del método obteniendo administrador por id");
+            LOGGER.log(Level.INFO, "Fin del metodo obteniendo administrador por ID");
         }
     }
 }
