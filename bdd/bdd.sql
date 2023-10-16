@@ -9,36 +9,32 @@
 --USUARIO, TIPO USUARIO, EVALUADOR, INSTITUCION EMPRESA, ADMINISTRADOR Y ESTUDIANTE
 
 CREATE TABLE Administrador (
-    AdministradorID int  NOT NULL,
+    AdministradorID SERIAL  NOT NULL,
     Cargo varchar(30)  NOT NULL,
-    InstitucionEmpresa_EmpresaID int  NOT NULL,
-    Usuario_UsuarioID int  NOT NULL,
-    TipoUsuario_TipoID int  NOT NULL,
+    InstitucionEmpresa_EmpresaID SERIAL  NOT NULL,
+    Usuario_UsuarioID SERIAL  NOT NULL,
+    TipoUsuario_TipoID SERIAL  NOT NULL,
     CONSTRAINT Administrador_pk PRIMARY KEY (AdministradorID)
 );
 
-
--- Table: Estudiante
 CREATE TABLE Estudiante (
-    EstudianteID int  NOT NULL,
+    EstudianteID SERIAL  NOT NULL,
     Semestre varchar(50)  NOT NULL,
     Carrera varchar(50)  NOT NULL,
-    Usuario_UsuarioID int  NOT NULL,
-    TipoUsuario_TipoID int  NOT NULL,
+    Usuario_UsuarioID SERIAL  NOT NULL,
+    TipoUsuario_TipoID SERIAL  NOT NULL,
     CONSTRAINT Estudiante_pk PRIMARY KEY (EstudianteID)
 );
 
--- Table: Evaluador
 CREATE TABLE Evaluador (
-    EvaluadorID int  NOT NULL,
-    Usuario_UsuarioID int  NOT NULL,
-    TipoUsuario_TipoID int  NOT NULL,
+    EvaluadorID SERIAL  NOT NULL,
+    Usuario_UsuarioID SERIAL  NOT NULL,
+    TipoUsuario_TipoID SERIAL  NOT NULL,
     CONSTRAINT Evaluador_pk PRIMARY KEY (EvaluadorID)
 );
 
--- Table: InstitucionEmpresa
 CREATE TABLE InstitucionEmpresa (
-    EmpresaID int  NOT NULL,
+    EmpresaID SERIAL  NOT NULL,
     Nombre_empresa varchar(50)  NOT NULL,
     Tipo_convenio varchar(30)  NOT NULL,
     Requisitos_convenio varchar(50)  NOT NULL,
@@ -47,16 +43,14 @@ CREATE TABLE InstitucionEmpresa (
     CONSTRAINT InstitucionEmpresa_pk PRIMARY KEY (EmpresaID)
 );
 
--- Table: TipoUsuario
 CREATE TABLE TipoUsuario (
-    TipoID int  NOT NULL,
+    TipoID SERIAL  NOT NULL,
     Tipo_usuario varchar(20)  NOT NULL,
     CONSTRAINT TipoUsuario_pk PRIMARY KEY (TipoID)
 );
 
--- Table: Usuario
 CREATE TABLE Usuario (
-    UsuarioID int  NOT NULL,
+    UsuarioID SERIAL  NOT NULL,
     Contrasenia varchar(20)  NOT NULL,
     Nombre varchar(50)  NOT NULL,
     Apellido varchar(50)  NOT NULL,
