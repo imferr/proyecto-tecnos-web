@@ -51,6 +51,7 @@ public class EmpresaAPI {
         LOGGER.log(Level.INFO, "Inicio del metodo obteniendo todas las empresas");
         try {
             Map<String, Object> response = new HashMap<>();
+            LOGGER.log(Level.INFO, "Obteniendo todas las empresas");
             response.put("empresas", empresaBL.getAllEmpresas());
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
@@ -68,6 +69,7 @@ public class EmpresaAPI {
         LOGGER.log(Level.INFO, "Inicio del metodo obteniendo empresa por id");
         try {
             Map<String, Object> response = new HashMap<>();
+            LOGGER.log(Level.INFO, "Obteniendo empresa por id");
             response.put("empresa", empresaBL.findEmpresaById(id));
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
