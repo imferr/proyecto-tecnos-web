@@ -41,11 +41,11 @@ public class UsuarioBL {
         else if (!usuarioEntity.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.$")) {
             throw new RuntimeException("El correo no es valido");
         }// Mensaje de verificación de contrasena
-        else if (usuarioEntity.getPassword().length() <= 8) {
-            throw new RuntimeException("El correo debe tener más de 8 caracteres");
+        else if (usuarioEntity.getPassword().length() < 8) {
+            throw new RuntimeException("La contraseña debe tener más de 8 caracteres");
         }
         // mensajede verificacion de carnet:
-        else if (!usuarioEntity.getCarnet().matches("[0-9]")) {
+        else if (!usuarioEntity.getCarnet().matches("[0-9]{8}")) {
             throw new RuntimeException("El carnet no es valido");
         }
         

@@ -3,12 +3,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "userId": {
-        "usuarioid": 1,
-        // Otros campos de UsuarioEntity
-    },
-    "typeUser": {
-        "tipo_usuario": 2,
-        // Otros campos de TipoUsuarioEntity
-    }
+  "userId": 1,
+  "typeUserId": 1
 }
+

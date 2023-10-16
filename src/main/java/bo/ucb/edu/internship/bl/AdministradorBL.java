@@ -23,11 +23,9 @@ public class AdministradorBL {
             throw new RuntimeException("El cargo del administrador no puede estar vacío");
         }
         // Puedes agregar más validaciones según tus necesidades.
-
         AdministradorEntity administrador = new AdministradorEntity();
         administrador.setPosition(administradorEntity.getPosition());
         // Realiza otras asignaciones de campos si es necesario.
-
         AdministradorEntity administradorResult = administradorDAO.save(administrador);
         return administradorResult;
     }

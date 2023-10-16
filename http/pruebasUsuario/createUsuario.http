@@ -3,11 +3,11 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "Juan",
+    "name": "Luis",
     "lastName": "Pérez",
-    "email": "juanperez@example.com",
-    "password": "password123",
-    "phone": "12345678",
-    "address": "123 Calle Principal",
+    "email": "luisperez@example.com",
+    "password": "pass1234",
+    "phone": "78544214",
+    "address": "987 Calle Principal",
     "carnet": "12345678"
 }
