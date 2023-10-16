@@ -36,7 +36,7 @@ public class EmpresaBL {
             throw new RuntimeException("El telefono no es valido");
         }
         // mensaje de verificacion de correo:
-        else if (!empresaEntity.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
+        else if (!empresaEntity.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.$")) {
             throw new RuntimeException("El correo no es valido");
         }
         EmpresaEntity empresa = new EmpresaEntity();
