@@ -58,34 +58,36 @@ public class EstudianteAPI {
     @GetMapping()
     public ResponseEntity<Map<String, Object>> getAllEstudiantes() {
         try {
+            LOGGER.log(Level.INFO, "Iniciando el metodo obteniendo estudiantes");
             List<EstudianteEntity> estudiantes = estudianteBL.getAllEstudiantes();
-            // Puedes mapear las entidades a DTO si es necesario
-
             Map<String, Object> response = new HashMap<>();
-            response.put("estudiantes", ((EstudianteBL) estudiantes).getAllEstudiantes());
-
+            LOGGER.log(Level.INFO, "Obteniendo estudiantes");
+            response.put("estudiantes", estudiantes);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             Map<String, Object> response = new HashMap<>();
-            response.put("message", "No se pudieron obtener los estudiantes");
+            response.put("message", "No se pudo encontrar a los estudiantes");
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        } finally {
+            LOGGER.log(Level.INFO, "Fin del metodo obteniendo estudiantes");
         }
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Map<String, Object>> findEstudianteById(@PathVariable Integer id) {
         try {
+            LOGGER.log(Level.INFO, "Iniciando el metodo obteniendo estudiante por id");
             EstudianteEntity estudiante = estudianteBL.findEstudianteById(id);
-            // Puedes mapear la entidad a DTO si es necesario
-
             Map<String, Object> response = new HashMap<>();
+            LOGGER.log(Level.INFO, "Obteniendo estudiante por id");
             response.put("estudiante", estudiante);
-
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             Map<String, Object> response = new HashMap<>();
             response.put("message", "No se pudo encontrar al estudiante");
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        } finally {
+            LOGGER.log(Level.INFO, "Fin del metodo obteniendo estudiante por id");
         }
     }
 }
