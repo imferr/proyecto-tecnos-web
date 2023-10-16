@@ -34,10 +34,14 @@ public class EstudianteAPI {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Map<String, Object>> createEstudiante(@RequestBody EstudianteDTO estudianteDTO) {
+    public ResponseEntity<Map<String, Object>> createEstudiante(@RequestBody Map<String, Object> request) {
+        String semester = (String) request.get("semester");
+        String carrier = (String) request.get("carrier");
+        Integer userId = (Integer) request.get("userId");
+        Integer typeUserId = (Integer) request.get("typeUserId");
         LOGGER.log(Level.INFO, "Inicio del metodo registrando estudiante");
         try {
-            estudianteBL.createEstudiante(estudianteDTO);
+            estudianteBL.createEstudiante(semester, carrier, userId, typeUserId);
             Map<String, Object> response = new HashMap<>();
             response.put("message", "El estudiante se ha registrado exitosamente");
             return new ResponseEntity<>(response, HttpStatus.OK);

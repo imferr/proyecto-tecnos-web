@@ -5,18 +5,6 @@ Accept: application/json
 {
     "semester": "Segundo",
     "carrier": "Ingeniería Informática",
-    "user": {
-        "userId": 1,
-        "name": "Nombre del Usuario",
-        "lastName": "Apellido del Usuario",
-        "email": "usuario@example.com",
-        "password": "contraseña",
-        "phone": "1234567890",
-        "address": "Dirección del Usuario",
-        "carnet": "Carnet del Usuario"
-    },
-    "typeUser": {
-        "typeUserId": 1,
-        "typeUser": "Tipo de Usuario"
-    }
+    "userId": 3,
+    "typeUserId": 1
 }
