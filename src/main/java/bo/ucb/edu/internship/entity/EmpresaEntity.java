@@ -3,7 +3,7 @@ package bo.ucb.edu.internship.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "institutionempresa")
+@Table(name = "institucionempresa")
 
 public class EmpresaEntity {
     
@@ -18,7 +18,7 @@ public class EmpresaEntity {
     @Column(name = "tipo_convenio", length = 30, nullable = false)
     private String typeAgreement;
 
-    @Column(name = "requisito_convenio", length = 50, nullable = false)
+    @Column(name = "requisitos_convenio", length = 50, nullable = false)
     private String requirements;
 
     @Column(name = "telefono", length = 20, nullable = false)
