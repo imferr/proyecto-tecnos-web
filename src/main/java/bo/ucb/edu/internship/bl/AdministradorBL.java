@@ -1,14 +1,11 @@
 package bo.ucb.edu.internship.bl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import bo.ucb.edu.internship.dao.AdministradorDAO;
 import bo.ucb.edu.internship.entity.AdministradorEntity;
-import bo.ucb.edu.internship.entity.EmpresaEntity;
-import bo.ucb.edu.internship.entity.UsuarioEntity;
-import bo.ucb.edu.internship.entity.TipoUsuarioEntity;
-
-import java.util.List;
 
 @Service
 public class AdministradorBL {
@@ -22,17 +19,15 @@ public class AdministradorBL {
 
     // Método para crear un administrador:
     public AdministradorEntity createAdministrador(AdministradorEntity administradorEntity) {
-        // Validaciones, similar a las realizadas en EmpresaBL
         if (administradorEntity.getPosition() == null || administradorEntity.getPosition().length() == 0) {
             throw new RuntimeException("El cargo del administrador no puede estar vacío");
         }
-        // Otras validaciones aquí...
+        // Puedes agregar más validaciones según tus necesidades.
 
         AdministradorEntity administrador = new AdministradorEntity();
         administrador.setPosition(administradorEntity.getPosition());
-        administrador.setUserId(administradorEntity.getUserId());
-        administrador.setTypeUser(administradorEntity.getTypeUser());
-        administrador.setCompanyId(administradorEntity.getCompanyId());
+        // Realiza otras asignaciones de campos si es necesario.
+
         AdministradorEntity administradorResult = administradorDAO.save(administrador);
         return administradorResult;
     }
@@ -42,8 +37,11 @@ public class AdministradorBL {
         return administradorDAO.findAll();
     }
 
-    // Método para encontrar un administrador por su ID:
+    // Método para obtener un administrador por su ID:
     public AdministradorEntity findAdministradorById(Integer id) {
-        return administradorDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún administrador con el ID proporcionado"));
+        return administradorDAO.findById(id)
+                .orElseThrow(() -> new RuntimeException("No se encontró ningún administrador con el ID proporcionado"));
     }
+
+    // Agrega más métodos según tus necesidades, como actualizar, eliminar, etc.
 }

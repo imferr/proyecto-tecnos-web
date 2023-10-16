@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/v1/administradores/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "position": "Gerente de Recursos Humanos",
+    "userId": "1",  
+    "typeUser": "ADMIN",  
+    "companyId": "1"
+}
