@@ -4,7 +4,20 @@ Accept: application/json
 
 {
     "position": "Gerente de Recursos Humanos",
-    "userId": "1",  
-    "typeUser": "ADMIN",  
-    "companyId": "1"
+    "userId": {
+        "userId": 1,
+        "userName": "nombre_de_usuario",
+        "otherProperty": "otro_valor"
+    },
+    "typeUser": {
+        "typeUser": 1
+    },
+    "companyId": {
+      "companyId": 1,
+      "companyName": "Empresa 2",
+      "typeAgreement": "CONTRATO",
+      "requirements": "Ser hombre",
+      "phone": "71544317",
+      "email": "empresa2@gmail.com"
+    }
 }

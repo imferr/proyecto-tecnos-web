@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "estudiante")
-
 public class EstudianteEntity {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "estudianteid")
@@ -25,6 +24,9 @@ public class EstudianteEntity {
     @ManyToOne
     @JoinColumn(name = "tipousuario_tipo_usuario", referencedColumnName = "tipo_usuario", nullable = false)
     private TipoUsuarioEntity typeUser;
+    
+    
+
 
     public EstudianteEntity() {
     }

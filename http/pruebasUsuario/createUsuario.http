@@ -7,7 +7,7 @@ Accept: application/json
     "lastName": "Pérez",
     "email": "juanperez@example.com",
     "password": "password123",
-    "phone": "123456789",
+    "phone": "12345678",
     "address": "123 Calle Principal",
-    "carnet": "123456789"
+    "carnet": "12345678"
 }
