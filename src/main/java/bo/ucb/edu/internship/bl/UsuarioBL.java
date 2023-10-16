@@ -45,7 +45,7 @@ public class UsuarioBL {
             throw new RuntimeException("El correo debe tener más de 8 caracteres");
         }
         // mensajede verificacion de carnet:
-        else if (!usuarioEntity.getCarnet().matches("[0-9]{8}")) {
+        else if (!usuarioEntity.getCarnet().matches("[0-9]")) {
             throw new RuntimeException("El carnet no es valido");
         }
         
