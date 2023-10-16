@@ -1,0 +1,13 @@
+POST http://localhost:8080/api/v1/usuario/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "María Fernanda",
+    "lastName": "Gutiérrez Sandoval",
+    "email": "ferguti@gmail.com",
+    "password": "mfgs2003",
+    "phone": "78544214",
+    "address": "Achumani Huayllani",
+    "carnet": "6794574"
+}

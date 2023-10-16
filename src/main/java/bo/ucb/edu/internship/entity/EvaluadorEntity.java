@@ -17,16 +17,16 @@ public class EvaluadorEntity {
     private UsuarioEntity userId;
 
     @ManyToOne
-    @JoinColumn(name = "tipousuario_tipo_usuario", referencedColumnName = "tipo_usuario", nullable = false)
-    private TipoUsuarioEntity typeUser;
+    @JoinColumn(name = "tipousuario_tipoid", referencedColumnName = "tipoid", nullable = false)
+    private TipoUsuarioEntity typeUserId;
 
     public EvaluadorEntity() {
     }
 
-    public EvaluadorEntity(Integer evaluatorId, UsuarioEntity userId, TipoUsuarioEntity typeUser) {
+    public EvaluadorEntity(Integer evaluatorId, UsuarioEntity userId, TipoUsuarioEntity typeUserId) {
         this.evaluatorId = evaluatorId;
         this.userId = userId;
-        this.typeUser = typeUser;
+        this.typeUserId = typeUserId;
     }
 
     public Integer getEvaluatorId() {
@@ -45,20 +45,17 @@ public class EvaluadorEntity {
         this.userId = userId;
     }
 
-    public TipoUsuarioEntity getTypeUser() {
-        return typeUser;
+    public TipoUsuarioEntity getTypeUserId() {
+        return typeUserId;
     }
 
-    public void setTypeUser(TipoUsuarioEntity typeUser) {
-        this.typeUser = typeUser;
+    public void setTypeUserId(TipoUsuarioEntity typeUserId) {
+        this.typeUserId = typeUserId;
     }
 
     @Override
     public String toString() {
-        return "EvaluadorEntity{" +
-                "evaluatorId=" + evaluatorId +
-                ", userId=" + userId +
-                ", typeUser=" + typeUser +
-                '}';
+        return "EvaluadorEntity [evaluatorId=" + evaluatorId + ", typeUserId=" + typeUserId + ", userId=" + userId
+                + "]";
     }
 }

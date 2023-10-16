@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "estudiante")
-
 public class EstudianteEntity {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "estudianteid")
@@ -20,21 +19,23 @@ public class EstudianteEntity {
 
     @OneToOne
     @JoinColumn(name = "usuario_usuarioid", referencedColumnName = "usuarioid", nullable = false)
-    private UsuarioEntity user;
+    private UsuarioEntity userId;
 
     @ManyToOne
-    @JoinColumn(name = "tipousuario_tipo_usuario", referencedColumnName = "tipo_usuario", nullable = false)
-    private TipoUsuarioEntity typeUser;
+    @JoinColumn(name = "tipousuario_tipoid", referencedColumnName = "tipoid", nullable = false)
+    private TipoUsuarioEntity typeUserId;
+    
+    
+
 
     public EstudianteEntity() {
     }
 
-    public EstudianteEntity(Integer studentId, String semester, String carrier, UsuarioEntity user, TipoUsuarioEntity typeUser) {
-        this.studentId = studentId;
+    public EstudianteEntity( String semester, String carrier, UsuarioEntity userId, TipoUsuarioEntity typeUserId) {
         this.semester = semester;
         this.carrier = carrier;
-        this.user = user;
-        this.typeUser = typeUser;
+        this.userId = userId;
+        this.typeUserId = typeUserId;
     }
 
     public Integer getStudentId() {
@@ -49,12 +50,12 @@ public class EstudianteEntity {
         return carrier;
     }
 
-    public UsuarioEntity getUser() {
-        return user;
+    public UsuarioEntity getUserId() {
+        return userId;
     }
 
-    public TipoUsuarioEntity getTypeUser() {
-        return typeUser;
+    public TipoUsuarioEntity getTypeUserId() {
+        return typeUserId;
     }
 
     public void setStudentId(Integer studentId) {
@@ -69,22 +70,18 @@ public class EstudianteEntity {
         this.carrier = carrier;
     }
 
-    public void setUser(UsuarioEntity user) {
-        this.user = user;
+    public void setUserId(UsuarioEntity userId) {
+        this.userId = userId;
     }
 
-    public void setTypeUser(TipoUsuarioEntity typeUser) {
-        this.typeUser = typeUser;
+    public void setTypeUserId(TipoUsuarioEntity typeUserId) {
+        this.typeUserId = typeUserId;
     }
 
     @Override
+
     public String toString() {
-        return "EstudianteEntity{" +
-                "studentId=" + studentId +
-                ", semester='" + semester + '\'' +
-                ", carrier='" + carrier + '\'' +
-                ", user=" + user +
-                ", typeUser=" + typeUser +
-                '}';
+        return "EstudianteEntity [carrier=" + carrier + ", semester=" + semester + ", studentId=" + studentId
+                + ", typeUserId=" + typeUserId + ", userId=" + userId + "]";
     }
 }

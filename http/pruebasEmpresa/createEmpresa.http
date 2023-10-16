@@ -4,8 +4,8 @@ Accept: application/json
 
 {
     "companyName": "Empresa 2",
-    "typeAgreement": "CONTRATO",
-    "requirements": "Ser hombre",
+    "typeAgreement": "Convenio",
+    "requirements": "Ser mujer",
     "phone": "71544317",
     "email": "empresa2@gmail.com"
 }

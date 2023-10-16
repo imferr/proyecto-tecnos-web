@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/v1/estudiantes/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "semester": "Segundo",
+    "carrier": "Economia",
+    "userId": 1,
+    "typeUserId": 2
+}

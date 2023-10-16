@@ -1,0 +1,5 @@
+###obetener todas los tipousuario
+GET http://localhost:8080/api/v1/tipousuario
+
+###obtener una tipousuario por id (tipousuario)
+GET http://localhost:8080/api/v1/tipousuario/1
