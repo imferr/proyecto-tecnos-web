@@ -45,6 +45,7 @@ public class EstudianteAPI {
         try {
             estudianteBL.createEstudiante(semester, carrier, userId, typeUserId);
             Map<String, Object> response = new HashMap<>();
+            LOGGER.log(Level.INFO, "Registrando estudiante");
             response.put("message", "El estudiante se ha registrado exitosamente");
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
