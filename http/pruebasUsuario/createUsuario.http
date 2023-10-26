@@ -3,8 +3,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "María Fernanda",
-    "lastName": "Gutiérrez Sandoval",
+    "name": "Fernanda",
+    "lastName": "Sandoval",
     "email": "ferguti@gmail.com",
     "password": "mfgs2003",
     "phone": "78544214",

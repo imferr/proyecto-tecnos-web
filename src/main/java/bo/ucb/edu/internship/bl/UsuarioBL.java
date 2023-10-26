@@ -68,4 +68,25 @@ public class UsuarioBL {
     public UsuarioEntity findUsuarioById(Integer id) {
         return usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
     }
+
+    //metodo para actualizar un usuario:
+    public UsuarioEntity updateUsuario(int id, UsuarioEntity usuarioEntity) {
+        UsuarioEntity usuario = usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
+        usuario.setName(usuarioEntity.getName());
+        usuario.setLastName(usuarioEntity.getLastName());
+        usuario.setEmail(usuarioEntity.getEmail());
+        usuario.setPassword(usuarioEntity.getPassword());
+        usuario.setPhone(usuarioEntity.getPhone());
+        usuario.setAddress(usuarioEntity.getAddress());
+        usuario.setCarnet(usuarioEntity.getCarnet());
+        usuarioDAO.save(usuario);
+        return usuario;
+    }
+
+    //metodo para eliminar un usuario:
+    public UsuarioEntity deleteUsuario(Integer id) {
+        UsuarioEntity usuario = usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
+        usuarioDAO.deleteById(id);
+        return usuario;
+    }
 }

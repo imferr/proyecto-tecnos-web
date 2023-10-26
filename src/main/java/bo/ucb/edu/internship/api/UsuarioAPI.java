@@ -78,4 +78,42 @@ public class UsuarioAPI {
             LOGGER.log(Level.INFO, "Fin del método obteniendo usuario por ID");
         }
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Map<String, Object>> updateUsuario(@PathVariable Integer id, @RequestBody UsuarioEntity usuarioEntity) {
+        LOGGER.log(Level.INFO, "Inicio del método actualizando usuario");
+        try {
+            // Llama al método de la capa de lógica empresarial para actualizar un usuario
+            usuarioBL.updateUsuario(id, usuarioEntity);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "El usuario se ha actualizado exitosamente");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.log(Level.WARNING, "Error al actualizar usuario", e);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "El usuario no se ha actualizado");
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        } finally {
+            LOGGER.log(Level.INFO, "Fin del método actualizando usuario");
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String, Object>> deleteUsuario(@PathVariable Integer id) {
+        LOGGER.log(Level.INFO, "Inicio del método eliminando usuario");
+        try {
+            // Llama al método de la capa de lógica empresarial para eliminar un usuario
+            usuarioBL.deleteUsuario(id);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "El usuario se ha eliminado exitosamente");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.log(Level.WARNING, "Error al eliminar usuario", e);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "El usuario no se ha eliminado");
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        } finally {
+            LOGGER.log(Level.INFO, "Fin del método eliminando usuario");
+        }
+    }
 }
