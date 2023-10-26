@@ -7,7 +7,7 @@
 
 ## Documentación
 
-La documentación de este proyecto se encuentra en el siguiente enlace: [Documentación Internship] (https://docs.google.com/document/d/1New43yZgYZLagiPTidPiOHPEdc70P9URpXEa2AsUDTY/edit?usp=sharing)
+La documentación de este proyecto se encuentra en el siguiente enlace: https://docs.google.com/document/d/1New43yZgYZLagiPTidPiOHPEdc70P9URpXEa2AsUDTY/edit?usp=sharing
 
 ## Requerimientos
 
