@@ -5,6 +5,10 @@
     <img src="https://miro.medium.com/v2/resize:fit:700/0*R60lnmJl4hanOBaJ.png" alt="Logo" width="auto" height="100">
 </div>
 
+## Documentación
+
+La documentación de este proyecto se encuentra en el siguiente enlace: [Documentación Internship] (https://docs.google.com/document/d/1New43yZgYZLagiPTidPiOHPEdc70P9URpXEa2AsUDTY/edit?usp=sharing)
+
 ## Requerimientos
 
 Para poder hacer correr el proyecto se necesita tener instalado lo siguiente:
