@@ -1,315 +1,136 @@
---SOLO ES PARA LA PRIMERA PARTE
 
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2023-10-02 02:38:04.448
 
 -- tables
+-- Tables
+
 -- Table: Administrador
-
---USUARIO, TIPO USUARIO, EVALUADOR, INSTITUCION EMPRESA, ADMINISTRADOR Y ESTUDIANTE
-
 CREATE TABLE Administrador (
-    AdministradorID SERIAL  NOT NULL,
-    Cargo varchar(30)  NOT NULL,
-    InstitucionEmpresa_EmpresaID SERIAL  NOT NULL,
-    Usuario_UsuarioID SERIAL  NOT NULL,
-    TipoUsuario_TipoID SERIAL  NOT NULL,
-    CONSTRAINT Administrador_pk PRIMARY KEY (AdministradorID)
-);
-
-CREATE TABLE Estudiante (
-    EstudianteID SERIAL  NOT NULL,
-    Semestre varchar(50)  NOT NULL,
-    Carrera varchar(50)  NOT NULL,
-    Usuario_UsuarioID SERIAL  NOT NULL,
-    TipoUsuario_TipoID SERIAL  NOT NULL,
-    CONSTRAINT Estudiante_pk PRIMARY KEY (EstudianteID)
-);
-
-CREATE TABLE Evaluador (
-    EvaluadorID SERIAL  NOT NULL,
-    Usuario_UsuarioID SERIAL  NOT NULL,
-    TipoUsuario_TipoID SERIAL  NOT NULL,
-    CONSTRAINT Evaluador_pk PRIMARY KEY (EvaluadorID)
-);
-
-CREATE TABLE InstitucionEmpresa (
-    EmpresaID SERIAL  NOT NULL,
-    Nombre_empresa varchar(50)  NOT NULL,
-    Tipo_convenio varchar(30)  NOT NULL,
-    Requisitos_convenio varchar(50)  NOT NULL,
-    Telefono varchar(20)  NOT NULL,
-    Correo varchar(50)  NOT NULL,
-    CONSTRAINT InstitucionEmpresa_pk PRIMARY KEY (EmpresaID)
-);
-
-CREATE TABLE TipoUsuario (
-    TipoID SERIAL  NOT NULL,
-    Tipo_usuario varchar(20)  NOT NULL,
-    CONSTRAINT TipoUsuario_pk PRIMARY KEY (TipoID)
-);
-
-CREATE TABLE Usuario (
-    UsuarioID SERIAL  NOT NULL,
-    Contrasenia varchar(20)  NOT NULL,
-    Nombre varchar(50)  NOT NULL,
-    Apellido varchar(50)  NOT NULL,
-    Carnet varchar(30)  NOT NULL,
-    Correo varchar(50)  NOT NULL,
-    Telefono varchar(20)  NOT NULL,
-    Direccion varchar(50)  NOT NULL,
-    CONSTRAINT Usuario_pk PRIMARY KEY (UsuarioID)
-);
-
--- foreign keys
--- Reference: Administrador_InstitucionEmpresa (table: Administrador)
-ALTER TABLE Administrador ADD CONSTRAINT Administrador_InstitucionEmpresa
-    FOREIGN KEY (InstitucionEmpresa_EmpresaID)
-    REFERENCES InstitucionEmpresa (EmpresaID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: Administrador_TipoUsuario (table: Administrador)
-ALTER TABLE Administrador ADD CONSTRAINT Administrador_TipoUsuario
-    FOREIGN KEY (TipoUsuario_TipoID)
-    REFERENCES TipoUsuario (TipoID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: Administrador_Usuario (table: Administrador)
-ALTER TABLE Administrador ADD CONSTRAINT Administrador_Usuario
-    FOREIGN KEY (Usuario_UsuarioID)
-    REFERENCES Usuario (UsuarioID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: Estudiante_TipoUsuario (table: Estudiante)
-ALTER TABLE Estudiante ADD CONSTRAINT Estudiante_TipoUsuario
-    FOREIGN KEY (TipoUsuario_TipoID)
-    REFERENCES TipoUsuario (TipoID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: Estudiante_Usuario (table: Estudiante)
-ALTER TABLE Estudiante ADD CONSTRAINT Estudiante_Usuario
-    FOREIGN KEY (Usuario_UsuarioID)
-    REFERENCES Usuario (UsuarioID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: Evaluador_TipoUsuario (table: Evaluador)
-ALTER TABLE Evaluador ADD CONSTRAINT Evaluador_TipoUsuario
-    FOREIGN KEY (TipoUsuario_TipoID)
-    REFERENCES TipoUsuario (TipoID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: Evaluador_Usuario (table: Evaluador)
-ALTER TABLE Evaluador ADD CONSTRAINT Evaluador_Usuario
-    FOREIGN KEY (Usuario_UsuarioID)
-    REFERENCES Usuario (UsuarioID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- sequences
--- Sequence: Administrador_seq
-CREATE SEQUENCE Administrador_seq
-      INCREMENT BY 1
-      NO MINVALUE
-      NO MAXVALUE
-      START WITH 1
-      NO CYCLE
-;
-
--- Sequence: Estudiante_seq
-CREATE SEQUENCE Estudiante_seq
-      INCREMENT BY 1
-      NO MINVALUE
-      NO MAXVALUE
-      START WITH 1
-      NO CYCLE
-;
-
--- Sequence: Evaluador_seq
-CREATE SEQUENCE Evaluador_seq
-      INCREMENT BY 1
-      NO MINVALUE
-      NO MAXVALUE
-      START WITH 1
-      NO CYCLE
-;
-
--- Sequence: InstitucionEmpresa_seq
-CREATE SEQUENCE InstitucionEmpresa_seq
-      INCREMENT BY 1
-      NO MINVALUE
-      NO MAXVALUE
-      START WITH 1
-      NO CYCLE
-;
-
--- Sequence: Usuario_seq
-CREATE SEQUENCE Usuario_seq
-      INCREMENT BY 1
-      NO MINVALUE
-      NO MAXVALUE
-      START WITH 1
-      NO CYCLE
-;
-
-
-/*-- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2023-10-02 02:38:04.448
-
--- tables
--- Table: Administrador
-
---USUARIO, TIPO USUARIO, EVALUADOR, INSTITUCION EMPRESA, ADMINISTRADOR Y ESTUDIANTE
-
-CREATE TABLE Administrador (
-    AdministradorID int  NOT NULL,
+    AdministradorID SERIAL PRIMARY KEY,
     Cargo varchar(30)  NOT NULL,
     InstitucionEmpresa_EmpresaID int  NOT NULL,
     Usuario_UsuarioID int  NOT NULL,
-    TipoUsuario_TipoID int  NOT NULL,
-    CONSTRAINT Administrador_pk PRIMARY KEY (AdministradorID)
+    TipoUsuario_TipoID int  NOT NULL
 );
 
 -- Table: ConvocatoriaPractica
 CREATE TABLE ConvocatoriaPractica (
-    ConvocatoriaID int  NOT NULL,
+    ConvocatoriaID SERIAL PRIMARY KEY,
     Titulo_convocatoria varchar(50)  NOT NULL,
     Descripcion_convocatoria varchar(50)  NOT NULL,
     Fecha_publicacion date  NOT NULL,
     Estado_aprobacion boolean  NOT NULL,
     InstitucionEmpresa_EmpresaID int  NOT NULL,
-    Usei_UsuarioID int  NOT NULL,
-    CONSTRAINT ConvocatoriaPractica_pk PRIMARY KEY (ConvocatoriaID)
+    Usei_UsuarioID int  NOT NULL
 );
 
 -- Table: DocumentoElectronico
 CREATE TABLE DocumentoElectronico (
-    DocumentoID int  NOT NULL,
+    DocumentoID SERIAL PRIMARY KEY,
     Tipo_documento varchar(30)  NOT NULL,
     Nombre_documento varchar(50)  NOT NULL,
     Contenido_documento bytea  NOT NULL,
-    FormularioSolicitud_SolicitudID int  NOT NULL,
-    CONSTRAINT DocumentoElectronico_pk PRIMARY KEY (DocumentoID)
+    FormularioSolicitud_SolicitudID int  NOT NULL
 );
 
 -- Table: Estudiante
 CREATE TABLE Estudiante (
-    EstudianteID int  NOT NULL,
+    EstudianteID SERIAL PRIMARY KEY,
     Semestre varchar(50)  NOT NULL,
     Carrera varchar(50)  NOT NULL,
     Usuario_UsuarioID int  NOT NULL,
-    TipoUsuario_TipoID int  NOT NULL,
-    CONSTRAINT Estudiante_pk PRIMARY KEY (EstudianteID)
+    TipoUsuario_TipoID int  NOT NULL
 );
 
 -- Table: EvaluacionPasantia
 CREATE TABLE EvaluacionPasantia (
-    EvaluacionID int  NOT NULL,
+    EvaluacionID SERIAL PRIMARY KEY,
     Evaluacion_desempenio decimal(10,2)  NOT NULL,
     Comentario_evaluacion varchar(70)  NOT NULL,
     PracticaRealizada_PracticaID int  NOT NULL,
-    Evaluador_EvaluadorID int  NOT NULL,
-    CONSTRAINT EvaluacionPasantia_pk PRIMARY KEY (EvaluacionID)
+    Evaluador_EvaluadorID int  NOT NULL
 );
 
 -- Table: Evaluador
 CREATE TABLE Evaluador (
-    EvaluadorID int  NOT NULL,
+    EvaluadorID SERIAL PRIMARY KEY,
     Usuario_UsuarioID int  NOT NULL,
-    TipoUsuario_TipoID int  NOT NULL,
-    CONSTRAINT Evaluador_pk PRIMARY KEY (EvaluadorID)
+    TipoUsuario_TipoID int  NOT NULL
 );
 
 -- Table: EventosPasantia
 CREATE TABLE EventosPasantia (
-    EventoID int  NOT NULL,
+    EventoID SERIAL PRIMARY KEY,
     Tipo_evento varchar(30)  NOT NULL,
     Fecha_hora_evento timestamp  NOT NULL,
     Descripcion_evento varchar(50)  NOT NULL,
     PracticaRealizada_PracticaID int  NOT NULL,
-    ConvocatoriaPractica_ConvocatoriaID int  NOT NULL,
-    CONSTRAINT EventosPasantia_pk PRIMARY KEY (EventoID)
+    ConvocatoriaPractica_ConvocatoriaID int  NOT NULL
 );
 
 -- Table: FormularioSolicitud
 CREATE TABLE FormularioSolicitud (
-    SolicitudID int  NOT NULL,
+    SolicitudID SERIAL PRIMARY KEY,
     Fecha_solicitud date  NOT NULL,
     Estado_solicitud boolean  NOT NULL,
     Documento_adjunto varchar(255)  NOT NULL,
-    Estudiante_EstudianteID int  NOT NULL,
-    CONSTRAINT FormularioSolicitud_pk PRIMARY KEY (SolicitudID)
+    Estudiante_EstudianteID int  NOT NULL
 );
 
 -- Table: InstitucionEmpresa
 CREATE TABLE InstitucionEmpresa (
-    EmpresaID int  NOT NULL,
+    EmpresaID SERIAL PRIMARY KEY,
     Nombre_empresa varchar(50)  NOT NULL,
     Tipo_convenio varchar(30)  NOT NULL,
     Requisitos_convenio varchar(50)  NOT NULL,
     Telefono varchar(20)  NOT NULL,
-    Correo varchar(50)  NOT NULL,
-    CONSTRAINT InstitucionEmpresa_pk PRIMARY KEY (EmpresaID)
+    Correo varchar(50)  NOT NULL
 );
 
 -- Table: Mensaje
 CREATE TABLE Mensaje (
-    MensajeID int  NOT NULL,
+    MensajeID SERIAL PRIMARY KEY,
     contenido_mensaje varchar(70)  NOT NULL,
     fecha_envio date  NOT NULL,
     Usuario_UsuarioID_Emisor int  NOT NULL,
-    Usuario_UsuarioID_Receptor int  NOT NULL,
-    CONSTRAINT Mensaje_pk PRIMARY KEY (MensajeID)
+    Usuario_UsuarioID_Receptor int  NOT NULL
 );
 
 -- Table: PracticaRealizada
 CREATE TABLE PracticaRealizada (
-    PracticaID int  NOT NULL,
+    PracticaID SERIAL PRIMARY KEY,
     Fecha_inicio date  NOT NULL,
     Fecha_finalizacion date  NOT NULL,
-    Estado_practica boolean  NOT NULL,
-    CONSTRAINT PracticaRealizada_pk PRIMARY KEY (PracticaID)
+    Estado_practica boolean  NOT NULL
 );
 
 -- Table: TipoUsuario
 CREATE TABLE TipoUsuario (
-    TipoID int  NOT NULL,
-    Tipo_usuario varchar(20)  NOT NULL,
-    CONSTRAINT TipoUsuario_pk PRIMARY KEY (TipoID)
+    TipoID SERIAL PRIMARY KEY,
+    Tipo_usuario varchar(20)  NOT NULL
 );
 
 -- Table: Usei
 CREATE TABLE Usei (
-    UseiID int  NOT NULL,
+    UseiID SERIAL PRIMARY KEY,
     Usuario_UsuarioID int  NOT NULL,
-    TipoUsuario_TipoID int  NOT NULL,
-    CONSTRAINT Usei_pk PRIMARY KEY (UseiID)
+    TipoUsuario_TipoID int  NOT NULL
 );
 
 -- Table: Usuario
 CREATE TABLE Usuario (
-    UsuarioID int  NOT NULL,
+    UsuarioID SERIAL PRIMARY KEY,
     Contrasenia varchar(20)  NOT NULL,
     Nombre varchar(50)  NOT NULL,
     Apellido varchar(50)  NOT NULL,
     Carnet varchar(30)  NOT NULL,
     Correo varchar(50)  NOT NULL,
     Telefono varchar(20)  NOT NULL,
-    Direccion varchar(50)  NOT NULL,
-    CONSTRAINT Usuario_pk PRIMARY KEY (UsuarioID)
+    Direccion varchar(50)  NOT NULL
 );
+
+-- Foreign keys remain the same
 
 -- foreign keys
 -- Reference: Administrador_InstitucionEmpresa (table: Administrador)
@@ -582,4 +403,4 @@ CREATE SEQUENCE Usuario_seq
       NO CYCLE
 ;
 
--- End of file.*/
+-- End of file.
