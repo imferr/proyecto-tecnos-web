@@ -1,12 +1,7 @@
 package bo.ucb.edu.internship.api;
 
-import bo.ucb.edu.internship.dto.EstudianteDTO;
 import bo.ucb.edu.internship.entity.EstudianteEntity;
-import bo.ucb.edu.internship.entity.TipoUsuarioEntity;
-import bo.ucb.edu.internship.entity.UsuarioEntity;
 import bo.ucb.edu.internship.bl.EstudianteBL;
-import bo.ucb.edu.internship.bl.TipoUsuarioBL;
-import bo.ucb.edu.internship.bl.UsuarioBL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -6,5 +6,5 @@ Accept: application/json
     "semester": "Segundo",
     "carrier": "Economia",
     "userId": 1,
-    "typeUserId": 2
+    "typeUserId": 1
 }

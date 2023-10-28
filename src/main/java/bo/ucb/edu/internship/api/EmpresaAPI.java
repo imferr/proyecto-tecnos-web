@@ -1,6 +1,5 @@
 package bo.ucb.edu.internship.api;
 
-import bo.ucb.edu.internship.dto.EmpresaDTO;
 import bo.ucb.edu.internship.entity.EmpresaEntity;
 import bo.ucb.edu.internship.bl.EmpresaBL;
 

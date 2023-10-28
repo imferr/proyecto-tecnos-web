@@ -1,6 +1,5 @@
 package bo.ucb.edu.internship.api;
 
-import bo.ucb.edu.internship.dto.AdministradorDTO;
 import bo.ucb.edu.internship.entity.AdministradorEntity;
 import bo.ucb.edu.internship.bl.AdministradorBL;
 

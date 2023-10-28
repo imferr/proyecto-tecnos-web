@@ -4,7 +4,7 @@ Accept: application/json
 
 {
     "cargo": "Gerente de Recursos Humanos",
-    "companyId": 2,
+    "companyId": 1,
     "userId": 1,
     "typeuserId": 1
 }
