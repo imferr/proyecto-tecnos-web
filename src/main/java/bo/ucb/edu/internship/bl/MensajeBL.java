@@ -42,7 +42,7 @@ public class MensajeBL{
         return mensajeDAO.save(mensaje);   
     }
 
-    public List<MensajeEntity> getAllMesages() {
+    public List<MensajeEntity> getAllMessages() {
         return mensajeDAO.findAll();
     }
 
