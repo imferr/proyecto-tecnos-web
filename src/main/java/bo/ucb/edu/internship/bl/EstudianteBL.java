@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bo.ucb.edu.internship.dao.EstudianteDAO;
-import bo.ucb.edu.internship.dto.EstudianteDTO;
 import bo.ucb.edu.internship.entity.EstudianteEntity;
 import bo.ucb.edu.internship.dao.UsuarioDAO;
 import bo.ucb.edu.internship.entity.UsuarioEntity;
