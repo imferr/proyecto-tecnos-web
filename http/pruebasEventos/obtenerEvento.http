@@ -1,0 +1,5 @@
+##obtener todos los eventos
+GET http://localhost:8080/api/v1/evento
+
+###obtener un evento por id
+GET http://localhost:8080/api/v1/evento/1

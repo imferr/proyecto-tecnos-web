@@ -1,6 +1,6 @@
 package bo.ucb.edu.internship.dto;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class EventosPasantiaDTO {
 

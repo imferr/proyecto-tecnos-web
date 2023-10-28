@@ -1,7 +1,6 @@
 package bo.ucb.edu.internship.api;
 
 import bo.ucb.edu.internship.bl.ConvocatoriaPracticaBL;
-import bo.ucb.edu.internship.entity.ConvocatoriaPracticaEntity;
 
 import java.sql.Date;
 import java.util.HashMap;
@@ -9,6 +8,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,6 +28,7 @@ public class ConvocatoriaPracticaAPI {
     private final ConvocatoriaPracticaBL convocatoriaPracticaBL;
     private static final Logger LOGGER = Logger.getLogger(ConvocatoriaPracticaAPI.class.getName());
 
+    @Autowired
     public ConvocatoriaPracticaAPI(ConvocatoriaPracticaBL convocatoriaPracticaBL) {
         this.convocatoriaPracticaBL = convocatoriaPracticaBL;
     }
