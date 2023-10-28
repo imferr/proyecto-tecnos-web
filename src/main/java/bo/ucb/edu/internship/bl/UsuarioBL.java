@@ -71,6 +71,21 @@ public class UsuarioBL {
 
     //metodo para actualizar un usuario:
     public UsuarioEntity updateUsuario(int id, UsuarioEntity usuarioEntity) {
+        if (usuarioEntity.getName() == null || usuarioEntity.getName().isEmpty()) {
+            throw new RuntimeException("El nombre del usuario no puede estar vacío");
+        } else if (usuarioEntity.getLastName() == null || usuarioEntity.getLastName().isEmpty()) {
+            throw new RuntimeException("El apellido del usuario no puede estar vacío");
+        } else if (usuarioEntity.getEmail() == null || usuarioEntity.getEmail().isEmpty()) {
+            throw new RuntimeException("El correo del usuario no puede estar vacío");
+        } else if (usuarioEntity.getPassword() == null || usuarioEntity.getPassword().isEmpty()) {
+            throw new RuntimeException("La contraseña del usuario no puede estar vacía");
+        } else if (usuarioEntity.getPhone() == null || usuarioEntity.getPhone().isEmpty()) {
+            throw new RuntimeException("El teléfono del usuario no puede estar vacío");
+        } else if (usuarioEntity.getAddress() == null || usuarioEntity.getAddress().isEmpty()) {
+            throw new RuntimeException("La dirección del usuario no puede estar vacía");
+        } else if (usuarioEntity.getCarnet() == null || usuarioEntity.getCarnet().isEmpty()) {
+            throw new RuntimeException("El carné del usuario no puede estar vacío");
+        }
         UsuarioEntity usuario = usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
         usuario.setName(usuarioEntity.getName());
         usuario.setLastName(usuarioEntity.getLastName());

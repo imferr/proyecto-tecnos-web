@@ -59,11 +59,11 @@ public class EventosPasantiaEntity {
         return descripcionEvento;
     }
 
-    public PracticaRealizadaEntity getPracticaRealizada() {
+    public PracticaRealizadaEntity getPracticaRealizadaId() {
         return practicaRealizada;
     }
 
-    public ConvocatoriaPracticaEntity getConvocatoriaPractica() {
+    public ConvocatoriaPracticaEntity getConvocatoriaPracticaId() {
         return convocatoriaPractica;
     }
 
@@ -83,24 +83,19 @@ public class EventosPasantiaEntity {
         this.descripcionEvento = descriptionEvento;
     }
 
-    public void setPracticaRealizada(PracticaRealizadaEntity practicaRealizada) {
-        this.practicaRealizada = practicaRealizada;
+    public void setPracticaRealizadaId(PracticaRealizadaEntity practicaRealizadaId) {
+        this.practicaRealizada = practicaRealizadaId;
     }
 
-    public void setConvocatoriaPractica(ConvocatoriaPracticaEntity convocatoriaPractica) {
-        this.convocatoriaPractica = convocatoriaPractica;
+    public void setConvocatoriaPracticaId(ConvocatoriaPracticaEntity convocatoriaPracticaId) {
+        this.convocatoriaPractica = convocatoriaPracticaId;
     }
 
     @Override
     public String toString() {
-        return "EventosPasantiaEntity{" +
-                "eventoId=" + eventoId +
-                ", tipoEvento='" + tipoEvento + '\'' +
-                ", dateEvento=" + fechaHoraEvento +
-                ", descriptionEvento='" + descripcionEvento + '\'' +
-                ", practicaRealizada=" + practicaRealizada +
-                ", convocatoriaPractica=" + convocatoriaPractica +
-                '}';
+        return "EventosPasantiaEntity [convocatoriaPractica=" + convocatoriaPractica + ", dateEvento=" + fechaHoraEvento
+                + ", descripcionEvento=" + descripcionEvento + ", eventoId=" + eventoId + ", practicaRealizada="
+                + practicaRealizada + ", tipoEvento=" + tipoEvento + "]";
     }
 
 }

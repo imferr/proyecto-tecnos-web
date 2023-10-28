@@ -50,4 +50,19 @@ public class UseiBL {
         return useiDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usei con el ID proporcionado"));
     }
 
+    //metodo para actualizar un usei por ID:
+    public UseiEntity updateUseiById(Integer id, Integer userId, Integer typeuserId) {
+        if (userId == null) {
+            throw new RuntimeException("El usuario debe estar completo");
+        } else if (typeuserId == null) {
+            throw new RuntimeException("El tipo de usuario debe estar completo");
+        }
+        UseiEntity usei = useiDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usei con el ID proporcionado"));
+        UsuarioEntity usuario = usuarioDAO.findById(userId).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
+        TipoUsuarioEntity tipoUsuario = tipoUsuarioDAO.findById(typeuserId).orElseThrow(() -> new RuntimeException("No se encontró ningún tipo de usuario con el ID proporcionado"));
+        usei.setUserId(usuario);
+        usei.setTypeUserId(tipoUsuario);
+        return useiDAO.save(usei);
+    }
+
 }

@@ -27,7 +27,7 @@ public class ConvocatoriaPracticaBL {
     }
 
     //metodo para crear una convocatoria de practica:
-    public ConvocatoriaPracticaEntity createConvocatoriaPracticaEntity(String titleConvocatoria, String descriptionConvocatoria, Date dateConvocatoria, Boolean stateConvocatoria, Integer companyId, Integer useiId) {
+    public ConvocatoriaPracticaEntity createConvocatoriaPractica(String titleConvocatoria, String descriptionConvocatoria, Date dateConvocatoria, Boolean stateConvocatoria, Integer companyId, Integer useiId) {
         if (titleConvocatoria == null) {
             throw new RuntimeException("El título de la convocatoria debe estar completo");
         } else if (descriptionConvocatoria == null) {
@@ -61,5 +61,32 @@ public class ConvocatoriaPracticaBL {
     //metodo para obtener una convocatoria de practica por ID:
     public ConvocatoriaPracticaEntity findConvocatoriaPracticaById(Integer id) {
         return convocatoriaPracticaDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ninguna convocatoria de práctica con el ID proporcionado"));
+    }
+
+    //metodo para actualizar una convocatoria de practica por ID:
+    public ConvocatoriaPracticaEntity updateConvocatoriaPracticaById(Integer id, String titleConvocatoria, String descriptionConvocatoria, Date dateConvocatoria, Boolean stateConvocatoria, Integer companyId, Integer useiId) {
+        if (titleConvocatoria == null) {
+            throw new RuntimeException("El título de la convocatoria debe estar completo");
+        } else if (descriptionConvocatoria == null) {
+            throw new RuntimeException("La descripción de la convocatoria debe estar completa");
+        } else if (dateConvocatoria == null || dateConvocatoria.toString().isEmpty()) {
+            throw new RuntimeException("La fecha de la convocatoria debe estar completa");
+        } else if (stateConvocatoria == null) {
+            throw new RuntimeException("El estado de la convocatoria debe estar completo");
+        } else if (companyId == null) {
+            throw new RuntimeException("La empresa debe estar completa");
+        } else if (useiId == null) {
+            throw new RuntimeException("El usei debe estar completo");
+        }
+        ConvocatoriaPracticaEntity convocatoriaPractica = convocatoriaPracticaDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ninguna convocatoria de práctica con el ID proporcionado"));
+        EmpresaEntity empresa = empresaDAO.findById(companyId).orElseThrow(() -> new RuntimeException("No se encontró ninguna empresa con el ID proporcionado"));
+        UseiEntity usei = useiDAO.findById(useiId).orElseThrow(() -> new RuntimeException("No se encontró ningún usei con el ID proporcionado"));
+        convocatoriaPractica.setTitleConvocatoria(titleConvocatoria);
+        convocatoriaPractica.setDescriptionConvocatoria(descriptionConvocatoria);
+        convocatoriaPractica.setDateConvocatoria(dateConvocatoria);
+        convocatoriaPractica.setStateConvocatoria(stateConvocatoria);
+        convocatoriaPractica.setCompanyId(empresa);
+        convocatoriaPractica.setUseiId(usei);
+        return convocatoriaPracticaDAO.save(convocatoriaPractica);
     }
 }
