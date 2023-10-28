@@ -1,0 +1,12 @@
+POST http://localhost:8080/api/v1/convocatoria/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "titleConvocatoria": "convocatoria de sistemas",
+    "descriptionConvocatoria": "convocatoria para el area de sistemas",
+    "dateConvocatoria": "2021-05-05",
+    "stateConvocatoria": true,
+    "companyId": 1,
+    "useiId": 1
+}
