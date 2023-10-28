@@ -1,0 +1,5 @@
+###Obetener todas los usuarios
+GET http://localhost:8080/api/v1/usei
+
+###obtener una usuario por id (usuario 1)
+GET http://localhost:8080/api/v1/usei/1
