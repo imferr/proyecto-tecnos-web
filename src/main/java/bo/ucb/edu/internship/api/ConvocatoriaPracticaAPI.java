@@ -37,7 +37,6 @@ public class ConvocatoriaPracticaAPI {
         
         String titleConvocatoria = (String) request.get("titleConvocatoria");
         String descriptionConvocatoria = (String) request.get("descriptionConvocatoria");
-
         //coreccion de la fecha en formato yyyy-MM-dd:
         String dateConvocatoriaString = (String) request.get("dateConvocatoria");
         Date dateConvocatoria = Date.valueOf(dateConvocatoriaString);
@@ -78,7 +77,7 @@ public class ConvocatoriaPracticaAPI {
         }
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Map<String, Object>> findConvocatoriaPracticaById(@PathVariable Integer id) {
         LOGGER.log(Level.INFO, "Inicio del metodo obteniendo convocatoria por ID");
         try {
@@ -100,7 +99,9 @@ public class ConvocatoriaPracticaAPI {
         
         String titleConvocatoria = (String) request.get("titleConvocatoria");
         String descriptionConvocatoria = (String) request.get("descriptionConvocatoria");
-        Date dateConvocatoria = (Date) request.get("dateConvocatoria");
+        //coreccion de la fecha en formato yyyy-MM-dd:
+        String dateConvocatoriaString = (String) request.get("dateConvocatoria");
+        Date dateConvocatoria = Date.valueOf(dateConvocatoriaString);
         Boolean stateConvocatoria = (Boolean) request.get("stateConvocatoria");
         Integer companyId = (Integer) request.get("companyId");
         Integer useiId = (Integer) request.get("useiId");

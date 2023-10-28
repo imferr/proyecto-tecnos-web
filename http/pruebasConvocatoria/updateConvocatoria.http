@@ -1,0 +1,12 @@
+PUT http://localhost:8080/api/v1/convocatoria/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "titleConvocatoria": "convocatoria de economia",
+    "descriptionConvocatoria": "convocatoria de economia",
+    "dateConvocatoria": "2023-06-06",
+    "stateConvocatoria": true,
+    "companyId": 1,
+    "useiId": 1
+}
