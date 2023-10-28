@@ -83,7 +83,7 @@ public class EventosPasantiaAPI {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> getEventosPasantiaById(Integer id) {
+    public ResponseEntity<Map<String, Object>> getEventosPasantiaById(@PathVariable Integer id) {
         LOGGER.log(Level.INFO, "Inicio del metodo obteniendo evento de pasantia por su id");
         try {
             Map<String, Object> response = new HashMap<>();
