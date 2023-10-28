@@ -1,7 +1,5 @@
 package bo.ucb.edu.internship.entity;
 
-import java.text.DecimalFormat;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -15,7 +13,7 @@ public class EvaluacionPasantiaEntity {
     private Integer evaluacionId;
 
     @Column(name = "evaluacion_desempenio", nullable = false)
-    private DecimalFormat notaEvaluacion;
+    private Double notaEvaluacion;
 
     @Column(name = "comentario_evaluacion", length = 70, nullable = false)
     private String comentsEvaluacion;
@@ -31,7 +29,7 @@ public class EvaluacionPasantiaEntity {
     public EvaluacionPasantiaEntity() {
     }
 
-    public EvaluacionPasantiaEntity(Integer evaluacionId, DecimalFormat notaEvaluacion, String comentsEvaluacion, PracticaRealizadaEntity practicaRealizada, EvaluadorEntity evaluador) {
+    public EvaluacionPasantiaEntity(Integer evaluacionId, Double notaEvaluacion, String comentsEvaluacion, PracticaRealizadaEntity practicaRealizada, EvaluadorEntity evaluador) {
         this.evaluacionId = evaluacionId;
         this.notaEvaluacion = notaEvaluacion;
         this.comentsEvaluacion = comentsEvaluacion;
@@ -43,7 +41,7 @@ public class EvaluacionPasantiaEntity {
         return evaluacionId;
     }
 
-    public DecimalFormat getNotaEvaluacion() {
+    public Double getNotaEvaluacion() {
         return notaEvaluacion;
     }
 
@@ -63,7 +61,7 @@ public class EvaluacionPasantiaEntity {
         this.evaluacionId = evaluacionId;
     }
 
-    public void setNotaEvaluacion(DecimalFormat notaEvaluacion) {
+    public void setNotaEvaluacion(Double notaEvaluacion) {
         this.notaEvaluacion = notaEvaluacion;
     }
 

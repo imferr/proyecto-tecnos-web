@@ -1,11 +1,9 @@
 package bo.ucb.edu.internship.dto;
 
-import java.text.DecimalFormat;
-
 public class EvaluacionPasantiaDTO {
     
     private int evaluacionId;
-    private DecimalFormat notaEvaluacion;
+    private Double notaEvaluacion;
     private String comentsEvaluacion;
     private PracticaRealizadaDTO practicaRealizada;
     private EvaluadorDTO evaluador;
@@ -13,7 +11,7 @@ public class EvaluacionPasantiaDTO {
     public EvaluacionPasantiaDTO() {
     }
 
-    public EvaluacionPasantiaDTO(int evaluacionId, DecimalFormat notaEvaluacion, String comentsEvaluacion, PracticaRealizadaDTO practicaRealizada, EvaluadorDTO evaluador) {
+    public EvaluacionPasantiaDTO(int evaluacionId, Double notaEvaluacion, String comentsEvaluacion, PracticaRealizadaDTO practicaRealizada, EvaluadorDTO evaluador) {
         this.evaluacionId = evaluacionId;
         this.notaEvaluacion = notaEvaluacion;
         this.comentsEvaluacion = comentsEvaluacion;
@@ -27,7 +25,7 @@ public class EvaluacionPasantiaDTO {
         return evaluacionId;
     }
 
-    public DecimalFormat getNotaEvaluacion() {
+    public Double getNotaEvaluacion() {
         return notaEvaluacion;
     }
 
@@ -49,7 +47,7 @@ public class EvaluacionPasantiaDTO {
         this.evaluacionId = evaluacionId;
     }
 
-    public void setNotaEvaluacion(DecimalFormat notaEvaluacion) {
+    public void setNotaEvaluacion(Double notaEvaluacion) {
         this.notaEvaluacion = notaEvaluacion;
     }
 
