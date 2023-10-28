@@ -31,7 +31,7 @@ public class ConvocatoriaPracticaEntity {
     private EmpresaEntity companyId;
 
     @ManyToOne
-    @JoinColumn(name = "usei_usuarioid", referencedColumnName = "usuarioid", nullable = false)
+    @JoinColumn(name = "usei_usuarioid", referencedColumnName = "useiid", nullable = false)
     private UseiEntity useiId;
 
     public ConvocatoriaPracticaEntity() {
