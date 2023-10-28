@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping(value = "/api/v1/mensajes")
+@RequestMapping(value = "/api/v1/mensaje")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MensajeAPI {
 
