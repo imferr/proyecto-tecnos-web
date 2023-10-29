@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/v1/mensaje/new
+Content-Type: application/json
+Accept: application/json
+
+{
+    "messageContent": "Hola mundo",
+    "sendDate": "2023-10-29",
+    "userIdSender": 1,
+    "userIdReceiver":2
+
+}
