@@ -4,8 +4,8 @@ Accept: application/json
 
 {
     "messageContent": "Hola mundo",
-    "sendDate": "2023-10-28",
-    "userIdSender": 2,
-    "userIdReceiver":4
+    "sendDate": "2023-10-29",
+    "userIdSender": 1,
+    "userIdReceiver":2
 
 }
