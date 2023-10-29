@@ -403,4 +403,3 @@ CREATE SEQUENCE Usuario_seq
       NO CYCLE
 ;
 
--- End of file.

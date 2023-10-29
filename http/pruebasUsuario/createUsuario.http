@@ -3,10 +3,10 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "Fernanda",
+    "name": "Luis",
     "lastName": "Sandoval",
-    "email": "ferguti@gmail.com",
-    "password": "mfgs2003",
+    "email": "luisguti@gmail.com",
+    "password": "m",
     "phone": "78544214",
     "address": "Achumani Huayllani",
     "carnet": "6794574"
