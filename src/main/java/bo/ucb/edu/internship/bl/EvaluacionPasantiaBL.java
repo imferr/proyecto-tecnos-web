@@ -1,6 +1,5 @@
 package bo.ucb.edu.internship.bl;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +26,8 @@ public class EvaluacionPasantiaBL {
     }
 
     //metodo para crear una evaluación de pasantía:
-    public EvaluacionPasantiaEntity createEvaluacionPasantia(Integer evaluacionId, DecimalFormat evaluacionDesempenio, String comentarioEvaluacion, Integer practicaRealizadaId, Integer evaluadorId) {
-        if (evaluacionId == null) {
-            throw new RuntimeException("El ID de la evaluación debe estar completo");
-        } else if (evaluacionDesempenio == null) {
+    public EvaluacionPasantiaEntity createEvaluacionPasantia(Double evaluacionDesempenio, String comentarioEvaluacion, Integer practicaRealizadaId, Integer evaluadorId) {
+        if (evaluacionDesempenio == null) {
             throw new RuntimeException("La nota de la evaluación debe estar completa");
         } else if (comentarioEvaluacion == null || comentarioEvaluacion.isEmpty()) {
             throw new RuntimeException("El comentario de la evaluación debe estar completo");
@@ -42,7 +39,6 @@ public class EvaluacionPasantiaBL {
         EvaluacionPasantiaEntity evaluacionPasantia = new EvaluacionPasantiaEntity();
         PracticaRealizadaEntity practicaRealizada = practicaRealizadaDAO.findById(practicaRealizadaId).orElseThrow(() -> new RuntimeException("No se encontró ninguna práctica realizada con el ID proporcionado"));
         EvaluadorEntity evaluador = evaluadorDAO.findById(evaluadorId).orElseThrow(() -> new RuntimeException("No se encontró ningún evaluador con el ID proporcionado"));
-        evaluacionPasantia.setEvaluacionId(evaluacionId);
         evaluacionPasantia.setNotaEvaluacion(evaluacionDesempenio);
         evaluacionPasantia.setComentsEvaluacion(comentarioEvaluacion);
         evaluacionPasantia.setPracticaRealizadaId(practicaRealizada);
@@ -56,16 +52,13 @@ public class EvaluacionPasantiaBL {
     }
 
     //metodo para obtener una evaluación de pasantía por su id:
-    public EvaluacionPasantiaEntity getEvaluacionPasantiaById(Integer evaluacionId) {
-        return evaluacionPasantiaDAO.findById(evaluacionId).orElseThrow(() -> new RuntimeException("No se encontró ninguna evaluación de pasantía con el ID proporcionado"));
+    public EvaluacionPasantiaEntity getEvaluacionPasantiaById(Integer id) {
+        return evaluacionPasantiaDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ninguna evaluación de pasantía con el ID proporcionado"));
     }
 
     //metodo para actualizar una evaluación de pasantía por su id:
-    public EvaluacionPasantiaEntity updateEvaluacionPasantiaById(Integer evaluacionId, DecimalFormat evaluacionDesempenio, String comentarioEvaluacion, Integer practicaRealizadaId, Integer evaluadorId) {
-        EvaluacionPasantiaEntity evaluacionPasantia = evaluacionPasantiaDAO.findById(evaluacionId).orElseThrow(() -> new RuntimeException("No se encontró ninguna evaluación de pasantía con el ID proporcionado"));
-        if (evaluacionId == null) {
-            throw new RuntimeException("El ID de la evaluación debe estar completo");
-        } else if (evaluacionDesempenio == null) {
+    public EvaluacionPasantiaEntity updateEvaluacionPasantiaById(Integer id, Double evaluacionDesempenio, String comentarioEvaluacion, Integer practicaRealizadaId, Integer evaluadorId) {
+        if (evaluacionDesempenio == null) {
             throw new RuntimeException("La nota de la evaluación debe estar completa");
         } else if (comentarioEvaluacion == null || comentarioEvaluacion.isEmpty()) {
             throw new RuntimeException("El comentario de la evaluación debe estar completo");
@@ -74,9 +67,9 @@ public class EvaluacionPasantiaBL {
         } else if (evaluadorId == null) {
             throw new RuntimeException("El ID del evaluador debe estar completo");
         }
+        EvaluacionPasantiaEntity evaluacionPasantia = evaluacionPasantiaDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ninguna evaluación de pasantía con el ID proporcionado"));
         PracticaRealizadaEntity practicaRealizada = practicaRealizadaDAO.findById(practicaRealizadaId).orElseThrow(() -> new RuntimeException("No se encontró ninguna práctica realizada con el ID proporcionado"));
         EvaluadorEntity evaluador = evaluadorDAO.findById(evaluadorId).orElseThrow(() -> new RuntimeException("No se encontró ningún evaluador con el ID proporcionado"));
-        evaluacionPasantia.setEvaluacionId(evaluacionId);
         evaluacionPasantia.setNotaEvaluacion(evaluacionDesempenio);
         evaluacionPasantia.setComentsEvaluacion(comentarioEvaluacion);
         evaluacionPasantia.setPracticaRealizadaId(practicaRealizada);

@@ -1,6 +1,6 @@
 package bo.ucb.edu.internship.entity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import jakarta.persistence.*;
 

@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/v1/evaluacion/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "evaluacionDesempenio": 45.50,
+    "comentarioEvaluacion": "tiene mal desempeño",
+    "practicaRealizadaId": 1,
+    "evaluadorId": 1
+}

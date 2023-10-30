@@ -40,13 +40,13 @@ public class PracticaRealizadaBL {
     }
 
     //metodo para obtener una práctica realizada por su id:
-    public PracticaRealizadaEntity getPracticaRealizadaById(Integer practicaId) {
-        return practicaRealizadaDAO.findById(practicaId).orElseThrow(() -> new RuntimeException("No se encontró ninguna práctica realizada con el ID proporcionado"));
+    public PracticaRealizadaEntity getPracticaRealizadaById(Integer id) {
+        return practicaRealizadaDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ninguna práctica realizada con el ID proporcionado"));
     }
 
     //metodo para actualizar una práctica realizada por su id:
-    public PracticaRealizadaEntity updatePracticaRealizadaById(Integer practicaId, Date fechaInicio, Date fechaFinalizacion, Boolean estadoPractica) {
-        PracticaRealizadaEntity practicaRealizada = practicaRealizadaDAO.findById(practicaId).orElseThrow(() -> new RuntimeException("No se encontró ninguna práctica realizada con el ID proporcionado"));
+    public PracticaRealizadaEntity updatePracticaRealizadaById(Integer id, Date fechaInicio, Date fechaFinalizacion, Boolean estadoPractica) {
+        PracticaRealizadaEntity practicaRealizada = practicaRealizadaDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ninguna práctica realizada con el ID proporcionado"));
         if (fechaInicio == null || fechaInicio.toString().isEmpty()) {
             throw new RuntimeException("La fecha de inicio debe estar completa");
         } else if (fechaFinalizacion == null || fechaFinalizacion.toString().isEmpty()) {
