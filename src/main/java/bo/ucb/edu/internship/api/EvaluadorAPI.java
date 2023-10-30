@@ -1,6 +1,5 @@
 package bo.ucb.edu.internship.api;
 
-import bo.ucb.edu.internship.entity.EvaluadorEntity;
 import bo.ucb.edu.internship.bl.EvaluadorBL;
 
 import org.springframework.beans.factory.annotation.Autowired;

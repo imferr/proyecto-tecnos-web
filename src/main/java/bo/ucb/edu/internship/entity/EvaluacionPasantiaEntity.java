@@ -71,11 +71,11 @@ public class EvaluacionPasantiaEntity {
         this.comentsEvaluacion = comentsEvaluacion;
     }
 
-    public void setPracticaRealizada(PracticaRealizadaEntity practicaRealizada) {
+    public void setPracticaRealizadaId(PracticaRealizadaEntity practicaRealizada) {
         this.practicaRealizada = practicaRealizada;
     }
 
-    public void setEvaluador(EvaluadorEntity evaluador) {
+    public void setEvaluadorId(EvaluadorEntity evaluador) {
         this.evaluador = evaluador;
     }
 
