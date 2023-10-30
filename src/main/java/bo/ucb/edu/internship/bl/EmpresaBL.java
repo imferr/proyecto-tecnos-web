@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import bo.ucb.edu.internship.dao.EmpresaDAO;
 import bo.ucb.edu.internship.entity.EmpresaEntity;
-import org.springframework.stereotype.Service;
 
 @Service
 public class EmpresaBL {
