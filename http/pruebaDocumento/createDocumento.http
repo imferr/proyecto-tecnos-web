@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/v1/documento-electronico/register
+Content-Type: multipart/form-data
+
+
+{
+    "tipoDocumento": "Carnet",
+    "nombreDocumento": "Carnet de Identidad",
+    "contenidoDocumento": "@C:\Users\ERLAN\Downloads\LANDAETA_URIA_8_10.pdf",
+    "formularioSolicitudID": 1
+}
