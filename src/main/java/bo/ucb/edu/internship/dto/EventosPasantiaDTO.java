@@ -1,12 +1,12 @@
 package bo.ucb.edu.internship.dto;
 
-import java.sql.Date;
+import java.security.Timestamp;
 
 public class EventosPasantiaDTO {
 
     private int eventoId;
-    private String titleEvento;
-    private Date dateEvento;
+    private String tipoEvento;
+    private Timestamp dateEvento;
     private String descriptionEvento;
     private PracticaRealizadaDTO practicaRealizada;
     private ConvocatoriaPracticaDTO convocatoriaPractica;
@@ -14,9 +14,9 @@ public class EventosPasantiaDTO {
     public EventosPasantiaDTO() {
     }
 
-    public EventosPasantiaDTO(int eventoId, String titleEvento, Date dateEvento, String descriptionEvento, PracticaRealizadaDTO practicaRealizada, ConvocatoriaPracticaDTO convocatoriaPractica) {
+    public EventosPasantiaDTO(int eventoId, String tipoEvento, Timestamp dateEvento, String descriptionEvento, PracticaRealizadaDTO practicaRealizada, ConvocatoriaPracticaDTO convocatoriaPractica) {
         this.eventoId = eventoId;
-        this.titleEvento = titleEvento;
+        this.tipoEvento = tipoEvento;
         this.dateEvento = dateEvento;
         this.descriptionEvento = descriptionEvento;
         this.practicaRealizada = practicaRealizada;
@@ -29,11 +29,11 @@ public class EventosPasantiaDTO {
         return eventoId;
     }
 
-    public String getTitleEvento() {
-        return titleEvento;
+    public String getTipoEvento() {
+        return tipoEvento;
     }
 
-    public Date getDateEvento() {
+    public Timestamp getDateEvento() {
         return dateEvento;
     }
 
@@ -55,11 +55,11 @@ public class EventosPasantiaDTO {
         this.eventoId = eventoId;
     }
 
-    public void setTitleEvento(String titleEvento) {
-        this.titleEvento = titleEvento;
+    public void setTipoEvento(String tipoEvento) {
+        this.tipoEvento = tipoEvento;
     }
 
-    public void setDateEvento(Date dateEvento) {
+    public void setDateEvento(Timestamp dateEvento) {
         this.dateEvento = dateEvento;
     }
 
@@ -79,7 +79,7 @@ public class EventosPasantiaDTO {
     public String toString() {
         return "EventosPasantiaDTO{" +
                 "eventoId=" + eventoId +
-                ", titleEvento='" + titleEvento + '\'' +
+                ", tipoEvento='" + tipoEvento + '\'' +
                 ", dateEvento=" + dateEvento +
                 ", descriptionEvento='" + descriptionEvento + '\'' +
                 ", practicaRealizada=" + practicaRealizada +
