@@ -28,11 +28,19 @@ CREATE TABLE ConvocatoriaPractica (
 -- Table: DocumentoElectronico
 CREATE TABLE DocumentoElectronico (
     DocumentoID SERIAL PRIMARY KEY,
+    Tipo_documento varchar(30) NOT NULL,
+    Nombre_documento varchar(50) NOT NULL,
+    Contenido_documento varchar(150) NOT NULL,
+    FormularioSolicitud_SolicitudID int NOT NULL
+);
+
+/*CREATE TABLE DocumentoElectronico (
+    DocumentoID SERIAL PRIMARY KEY,
     Tipo_documento varchar(30)  NOT NULL,
     Nombre_documento varchar(50)  NOT NULL,
     Contenido_documento bytea  NOT NULL,
     FormularioSolicitud_SolicitudID int  NOT NULL
-);
+);*/
 
 -- Table: Estudiante
 CREATE TABLE Estudiante (
