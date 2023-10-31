@@ -1,0 +1,5 @@
+###OBTENER TODOS LOS DOCUMENTOS
+GET http://localhost:8080/api/v1/documento-electronico
+
+###OBTENER UN DOCUMENTO POR ID
+GET http://localhost:8080/api/v1/documento-electronico/2

@@ -1,14 +1,6 @@
 package bo.ucb.edu.internship.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.JoinColumn;
-
+import jakarta.persistence.*;
 @Entity
 @Table(name = "documentoelectronico")
 public class DocumentoElectronicoEntity {
@@ -24,18 +16,18 @@ public class DocumentoElectronicoEntity {
     @Column(name = "Nombre_documento", nullable = false, length = 50)
     private String nombreDocumento;
 
-    @Column(name = "Contenido_documento", nullable = false)
-    private byte[] contenidoDocumento;
+    @Column(name = "Contenido_documento", nullable = false, length = 150)
+    private String contenidoDocumento;
 
     @ManyToOne
-    @JoinColumn(name = "FormularioSolicitud_SolicitudID", referencedColumnName = "SolicitudID", nullable = false)
+    @JoinColumn(name = "formulariosolicitud_solicitudid", referencedColumnName = "solicitudID", nullable = false)
     private FormularioSolicitudEntity formularioSolicitudID;
 
 
     public DocumentoElectronicoEntity() {
     }
 
-    public DocumentoElectronicoEntity(Integer documentoId, String tipoDocumento, String nombreDocumento, byte[] contenidoDocumento, FormularioSolicitudEntity formularioSolicitudID) {
+    public DocumentoElectronicoEntity(Integer documentoId, String tipoDocumento, String nombreDocumento, String contenidoDocumento, FormularioSolicitudEntity formularioSolicitudID) {
         this.documentoId = documentoId;
         this.tipoDocumento = tipoDocumento;
         this.nombreDocumento = nombreDocumento;
@@ -69,11 +61,11 @@ public class DocumentoElectronicoEntity {
         this.nombreDocumento = nombreDocumento;
     }
 
-    public byte[] getContenidoDocumento() {
+    public String getContenidoDocumento() {
         return contenidoDocumento;
     }
 
-    public void setContenidoDocumento(byte[] contenidoDocumento) {
+    public void setContenidoDocumento(String contenidoDocumento) {
         this.contenidoDocumento = contenidoDocumento;
     }
 

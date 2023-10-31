@@ -5,13 +5,13 @@ public class DocumentoElectronicoDTO {
     private Integer documentoId;
     private String tipoDocumento;
     private String nombreDocumento;
-    private byte[] contenidoDocumento;
+    private String contenidoDocumento;
     private FormularioSolicitudDTO formularioSolicitudId;
 
     public DocumentoElectronicoDTO() {
     }
     
-    public DocumentoElectronicoDTO(Integer documentoId, String tipoDocumento, String nombreDocumento, byte[] contenidoDocumento, FormularioSolicitudDTO formularioSolicitudId) {
+    public DocumentoElectronicoDTO(Integer documentoId, String tipoDocumento, String nombreDocumento, String contenidoDocumento, FormularioSolicitudDTO formularioSolicitudId) {
         this.documentoId = documentoId;
         this.tipoDocumento = tipoDocumento;
         this.nombreDocumento = nombreDocumento;
@@ -43,11 +43,11 @@ public class DocumentoElectronicoDTO {
         this.nombreDocumento = nombreDocumento;
     }
 
-    public byte[] getContenidoDocumento() {
+    public String getContenidoDocumento() {
         return contenidoDocumento;
     }
 
-    public void setContenidoDocumento(byte[] contenidoDocumento) {
+    public void setContenidoDocumento(String contenidoDocumento) {
         this.contenidoDocumento = contenidoDocumento;
     }
 

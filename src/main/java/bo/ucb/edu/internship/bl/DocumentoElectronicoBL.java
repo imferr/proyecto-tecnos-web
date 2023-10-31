@@ -19,12 +19,12 @@ public class DocumentoElectronicoBL {
         this.formularioSolicitudDAO = formularioSolicitudDAO;
     }
 
-    public DocumentoElectronicoEntity createDocumentoElectronico(String tipoDocumento, String nombreDocumento, byte[] contenidoDocumento, Integer formularioSolicitudID) {
+    public DocumentoElectronicoEntity createDocumentoElectronico(String tipoDocumento, String nombreDocumento, String contenidoDocumento, Integer formularioSolicitudID) {
         if (tipoDocumento == null || tipoDocumento.isEmpty()) {
             throw new RuntimeException("El tipo de documento debe estar completo");
         } else if (nombreDocumento == null || nombreDocumento.isEmpty()) {
             throw new RuntimeException("El nombre del documento debe estar completo");
-        } else if (contenidoDocumento == null || contenidoDocumento.length == 0) {
+        } else if (contenidoDocumento == null || contenidoDocumento.isEmpty()) {
             throw new RuntimeException("El contenido del documento debe estar completo");
         } else if (formularioSolicitudID == null) {
             throw new RuntimeException("El ID del formulario de solicitud debe estar completo");
@@ -48,13 +48,13 @@ public class DocumentoElectronicoBL {
         return documentoElectronicoDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún documento electrónico con el ID proporcionado"));
     }
 
-    public DocumentoElectronicoEntity updateDocumentoElectronico(Integer id, String tipoDocumento, String nombreDocumento, byte[] contenidoDocumento, Integer formularioSolicitudID) {
+    public DocumentoElectronicoEntity updateDocumentoElectronico(Integer id, String tipoDocumento, String nombreDocumento, String contenidoDocumento, Integer formularioSolicitudID) {
         DocumentoElectronicoEntity documentoElectronico = documentoElectronicoDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún documento electrónico con el ID proporcionado"));
         if (tipoDocumento == null || tipoDocumento.isEmpty()) {
             throw new RuntimeException("El tipo de documento debe estar completo");
         } else if (nombreDocumento == null || nombreDocumento.isEmpty()) {
             throw new RuntimeException("El nombre del documento debe estar completo");
-        } else if (contenidoDocumento == null || contenidoDocumento.length == 0) {
+        } else if (contenidoDocumento == null || contenidoDocumento.isEmpty()) {
             throw new RuntimeException("El contenido del documento debe estar completo");
         } else if (formularioSolicitudID == null) {
             throw new RuntimeException("El ID del formulario de solicitud debe estar completo");

@@ -28,15 +28,14 @@ public class DocumentoElectronicoAPI {
     public ResponseEntity<Map<String, Object>> createDocumentoElectronico(@RequestBody Map<String, Object> request) {
         String tipoDocumento = (String) request.get("tipoDocumento");
         String nombreDocumento = (String) request.get("nombreDocumento");
-        byte[] contenidoDocumento = (byte[]) request.get("contenidoDocumento");
+        String contenidoDocumento = (String) request.get("contenidoDocumento");
         Integer formularioSolicitudID = (Integer) request.get("formularioSolicitudID");
 
         LOGGER.log(Level.INFO, "Inicio del método creando documento electrónico");
         try {
-            DocumentoElectronicoEntity documentoElectronico = documentoElectronicoBL.createDocumentoElectronico(tipoDocumento, nombreDocumento, contenidoDocumento, formularioSolicitudID);
+            documentoElectronicoBL.createDocumentoElectronico(tipoDocumento, nombreDocumento, contenidoDocumento, formularioSolicitudID);
             Map<String, Object> response = new HashMap<>();
             response.put("message", "El documento electrónico se ha creado exitosamente");
-            response.put("documentoElectronico", documentoElectronico);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             LOGGER.log(Level.WARNING, "Error al crear documento electrónico", e);
@@ -86,7 +85,7 @@ public class DocumentoElectronicoAPI {
     public ResponseEntity<Map<String, Object>> updateDocumentoElectronico(@PathVariable("id") Integer id, @RequestBody Map<String, Object> request) {
         String tipoDocumento = (String) request.get("tipoDocumento");
         String nombreDocumento = (String) request.get("nombreDocumento");
-        byte[] contenidoDocumento = (byte[]) request.get("contenidoDocumento");
+        String contenidoDocumento = (String) request.get("contenidoDocumento");
         Integer formularioSolicitudID = (Integer) request.get("formularioSolicitudID");
 
         LOGGER.log(Level.INFO, "Inicio del método actualizando documento electrónico");

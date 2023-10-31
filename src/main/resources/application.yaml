@@ -1,4 +1,3 @@
-
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/bddinternship
@@ -14,9 +13,4 @@ spring:
         ddl-auto: none
         dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: true
-  servlet:
-    multipart:
-      enabled: true
-      max-file-size: 5MB
-      max-request-size: 10MB
-      file-size-threshold: 2KB
+  
