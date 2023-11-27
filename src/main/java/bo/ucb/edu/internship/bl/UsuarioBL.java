@@ -44,7 +44,9 @@ public class UsuarioBL {
         // Mensaje de verificación de contrasena (8 caracteres) y que contenga al menos un numero y una letra:
         else if (!usuarioEntity.getPassword().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
             throw new RuntimeException("La contraseña debe tener al menos un número y una letra");
-        }
+        } else if (usuarioEntity.getBirth() == null || usuarioEntity.getBirth().toString().isEmpty()) {
+            throw new RuntimeException("La fecha de nacimiento no puede estar vacía");
+        } 
 
         UsuarioEntity usuario = new UsuarioEntity();
         usuario.setName(usuarioEntity.getName());
@@ -54,6 +56,8 @@ public class UsuarioBL {
         usuario.setPhone(usuarioEntity.getPhone());
         usuario.setAddress(usuarioEntity.getAddress());
         usuario.setCarnet(usuarioEntity.getCarnet());
+        usuario.setBirth(usuarioEntity.getBirth());
+        usuario.setGender(usuarioEntity.getGender());
     
         UsuarioEntity usuarioResult = usuarioDAO.save(usuario);
         return usuarioResult;
@@ -85,7 +89,11 @@ public class UsuarioBL {
             throw new RuntimeException("La dirección del usuario no puede estar vacía");
         } else if (usuarioEntity.getCarnet() == null || usuarioEntity.getCarnet().isEmpty()) {
             throw new RuntimeException("El carné del usuario no puede estar vacío");
+        } else if (usuarioEntity.getBirth() == null || usuarioEntity.getBirth().toString().isEmpty()) {
+            throw new RuntimeException("La fecha de nacimiento no puede estar vacía");
         }
+
+
         UsuarioEntity usuario = usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
         usuario.setName(usuarioEntity.getName());
         usuario.setLastName(usuarioEntity.getLastName());
@@ -94,6 +102,9 @@ public class UsuarioBL {
         usuario.setPhone(usuarioEntity.getPhone());
         usuario.setAddress(usuarioEntity.getAddress());
         usuario.setCarnet(usuarioEntity.getCarnet());
+        usuario.setBirth(usuarioEntity.getBirth());
+        usuario.setGender(usuarioEntity.getGender());
+        
         usuarioDAO.save(usuario);
         return usuario;
     }

@@ -3,7 +3,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "semester": "Segundo",
+    "semester": "Tercero",
     "carrier": "Economia",
     "userId": 1,
     "typeUserId": 1

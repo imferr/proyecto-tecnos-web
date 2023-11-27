@@ -411,3 +411,6 @@ CREATE SEQUENCE Usuario_seq
       NO CYCLE
 ;
 
+ALTER TABLE Usuario
+ADD fecha_nacimiento date NOT NULL,
+ADD genero varchar(10);
