@@ -9,5 +9,7 @@ Accept: application/json
     "password": "mfgs2003",
     "phone": "78544214",
     "address": "Achumani Huayllani",
-    "carnet": "6794574"
+    "carnet": "6794574",
+    "birth" : "2022-05-11",
+    "gender" : "Femenino"
 }

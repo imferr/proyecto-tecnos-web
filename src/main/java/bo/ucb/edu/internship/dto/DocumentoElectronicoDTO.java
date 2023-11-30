@@ -5,17 +5,17 @@ public class DocumentoElectronicoDTO {
     private Integer documentoId;
     private String tipoDocumento;
     private String nombreDocumento;
-    private String contenidoDocumento;
+    private String URLDocumento;
     private FormularioSolicitudDTO formularioSolicitudId;
 
     public DocumentoElectronicoDTO() {
     }
     
-    public DocumentoElectronicoDTO(Integer documentoId, String tipoDocumento, String nombreDocumento, String contenidoDocumento, FormularioSolicitudDTO formularioSolicitudId) {
+    public DocumentoElectronicoDTO(Integer documentoId, String tipoDocumento, String nombreDocumento, String URLDocumento, FormularioSolicitudDTO formularioSolicitudId) {
         this.documentoId = documentoId;
         this.tipoDocumento = tipoDocumento;
         this.nombreDocumento = nombreDocumento;
-        this.contenidoDocumento = contenidoDocumento;
+        this.URLDocumento = URLDocumento;
         this.formularioSolicitudId = formularioSolicitudId;
     }
 
@@ -43,12 +43,12 @@ public class DocumentoElectronicoDTO {
         this.nombreDocumento = nombreDocumento;
     }
 
-    public String getContenidoDocumento() {
-        return contenidoDocumento;
+    public String getURLDocumento() {
+        return URLDocumento;
     }
 
-    public void setContenidoDocumento(String contenidoDocumento) {
-        this.contenidoDocumento = contenidoDocumento;
+    public void setURLDocumento(String URLDocumento) {
+        this.URLDocumento = URLDocumento;
     }
 
     public FormularioSolicitudDTO getFormularioSolicitudId() {

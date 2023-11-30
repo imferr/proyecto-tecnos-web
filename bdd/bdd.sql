@@ -29,8 +29,8 @@ CREATE TABLE ConvocatoriaPractica (
 CREATE TABLE DocumentoElectronico (
     DocumentoID SERIAL PRIMARY KEY,
     Tipo_documento varchar(30) NOT NULL,
-    Nombre_documento varchar(50) NOT NULL,
-    Contenido_documento varchar(150) NOT NULL,
+    Nombre_documento varchar(250) NOT NULL,
+    URL_documento varchar(500) NOT NULL,
     FormularioSolicitud_SolicitudID int NOT NULL
 );
 
@@ -135,7 +135,9 @@ CREATE TABLE Usuario (
     Carnet varchar(30)  NOT NULL,
     Correo varchar(50)  NOT NULL,
     Telefono varchar(20)  NOT NULL,
-    Direccion varchar(50)  NOT NULL
+    Direccion varchar(50)  NOT NULL,
+    Fecha_nacimiento date NOT NULL,
+    Genero varchar(10) NOT NULL
 );
 
 -- Foreign keys remain the same

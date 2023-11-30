@@ -1,5 +1,7 @@
 package bo.ucb.edu.internship.dto;
 
+import java.util.Date;
+
 public class UsuarioDTO {
     private int userId;
     private String name;
@@ -9,11 +11,14 @@ public class UsuarioDTO {
     private String phone;
     private String address;
     private String carnet;
+    private Date birth;
+    private String gender;
 
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(Integer userId, String name, String lastName, String email, String password, String phone, String address, String carnet) {
+    public UsuarioDTO(int userId, String name, String lastName, String email, String password, String phone,
+            String address, String carnet, Date birth, String gender) {
         this.userId = userId;
         this.name = name;
         this.lastName = lastName;
@@ -22,87 +27,98 @@ public class UsuarioDTO {
         this.phone = phone;
         this.address = address;
         this.carnet = carnet;
+        this.birth = birth;
+        this.gender = gender;
     }
 
-    // getters
-
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
         return name;
-    }  
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getPhone(){
-        return phone;
-    }
-
-    public String getAddress(){
-        return address;
-    }
-
-    public String getCarnet(){
-        return carnet;
-    }
-
-    // setters
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setPhone(String phone){
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setAddress(String address){
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public void setCarnet(String carnet){
+    public String getCarnet() {
+        return carnet;
+    }
+
+    public void setCarnet(String carnet) {
         this.carnet = carnet;
+    }
+
+    public Date getBirth() {
+        return birth;
+    }
+
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override
     public String toString() {
-        return "UserDTO{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password=" + password +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", carnet='" + carnet + '\'' +
-                '}';
+        return "UsuarioDTO [userId=" + userId + ", name=" + name + ", lastName=" + lastName + ", email=" + email
+                + ", password=" + password + ", phone=" + phone + ", address=" + address + ", carnet=" + carnet
+                + ", birth=" + birth + ", gender=" + gender + "]";
     }
+
+    
+
+
 }

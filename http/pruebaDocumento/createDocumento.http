@@ -5,6 +5,6 @@ Accept: application/json
 {
     "tipoDocumento": "Cosa de vida",
     "nombreDocumento": "Carnet de Identidad",
-    "contenidoDocumento": "Carnet.pdf",
+    "URLDocumento": "Carnet.pdf",
     "formularioSolicitudID": 1
 }
