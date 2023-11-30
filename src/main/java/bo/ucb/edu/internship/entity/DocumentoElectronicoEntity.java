@@ -13,11 +13,11 @@ public class DocumentoElectronicoEntity {
     @Column(name = "Tipo_documento", nullable = false, length = 30)
     private String tipoDocumento;
 
-    @Column(name = "Nombre_documento", nullable = false, length = 50)
+    @Column(name = "Nombre_documento", nullable = false, length = 250)
     private String nombreDocumento;
 
-    @Column(name = "Contenido_documento", nullable = false, length = 150)
-    private String contenidoDocumento;
+    @Column(name = "Url_documento", nullable = false, length = 500)
+    private String URLDocumento;
 
     @ManyToOne
     @JoinColumn(name = "formulariosolicitud_solicitudid", referencedColumnName = "solicitudID", nullable = false)
@@ -27,11 +27,11 @@ public class DocumentoElectronicoEntity {
     public DocumentoElectronicoEntity() {
     }
 
-    public DocumentoElectronicoEntity(Integer documentoId, String tipoDocumento, String nombreDocumento, String contenidoDocumento, FormularioSolicitudEntity formularioSolicitudID) {
+    public DocumentoElectronicoEntity(Integer documentoId, String tipoDocumento, String nombreDocumento, String URLDocumento, FormularioSolicitudEntity formularioSolicitudID) {
         this.documentoId = documentoId;
         this.tipoDocumento = tipoDocumento;
         this.nombreDocumento = nombreDocumento;
-        this.contenidoDocumento = contenidoDocumento;
+        this.URLDocumento = URLDocumento;
         this.formularioSolicitudID = formularioSolicitudID;
     }
 
@@ -61,12 +61,12 @@ public class DocumentoElectronicoEntity {
         this.nombreDocumento = nombreDocumento;
     }
 
-    public String getContenidoDocumento() {
-        return contenidoDocumento;
+    public String getURLDocumento() {
+        return URLDocumento;
     }
 
-    public void setContenidoDocumento(String contenidoDocumento) {
-        this.contenidoDocumento = contenidoDocumento;
+    public void setURLDocumento(String URLDocumento) {
+        this.URLDocumento = URLDocumento;
     }
 
     public FormularioSolicitudEntity getFormularioSolicitudId() {
@@ -79,6 +79,12 @@ public class DocumentoElectronicoEntity {
 
     @Override
     public String toString() {
-        return "DocumentoElectronicoEntity [documentoId=" + documentoId + ", tipoDocumento=" + tipoDocumento + ", nombreDocumento=" + nombreDocumento + "]";
+        return "DocumentoElectronicoEntity{" +
+                "documentoId=" + documentoId +
+                ", tipoDocumento='" + tipoDocumento + '\'' +
+                ", nombreDocumento='" + nombreDocumento + '\'' +
+                ", URLDocumento='" + URLDocumento + '\'' +
+                ", formularioSolicitudID=" + formularioSolicitudID +
+                '}';
     }
 }

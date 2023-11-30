@@ -38,7 +38,7 @@ public class UsuarioEntity {
     @Column(name = "fecha_nacimiento", nullable = false)
     private Date birth;
 
-    @Column(name = "genero", length = 20, nullable = true)
+    @Column(name = "genero", length = 20, nullable = false)
     private String gender;
 
     public UsuarioEntity() {

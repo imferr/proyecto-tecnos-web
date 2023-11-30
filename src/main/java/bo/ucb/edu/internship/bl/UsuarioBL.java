@@ -46,7 +46,9 @@ public class UsuarioBL {
             throw new RuntimeException("La contraseña debe tener al menos un número y una letra");
         } else if (usuarioEntity.getBirth() == null || usuarioEntity.getBirth().toString().isEmpty()) {
             throw new RuntimeException("La fecha de nacimiento no puede estar vacía");
-        } 
+        } else if (usuarioEntity.getGender() == null || usuarioEntity.getGender().isEmpty()) {
+            throw new RuntimeException("El género del usuario no puede estar vacío");
+        }
 
         UsuarioEntity usuario = new UsuarioEntity();
         usuario.setName(usuarioEntity.getName());
@@ -91,6 +93,8 @@ public class UsuarioBL {
             throw new RuntimeException("El carné del usuario no puede estar vacío");
         } else if (usuarioEntity.getBirth() == null || usuarioEntity.getBirth().toString().isEmpty()) {
             throw new RuntimeException("La fecha de nacimiento no puede estar vacía");
+        } else if (usuarioEntity.getGender() == null || usuarioEntity.getGender().isEmpty()) {
+            throw new RuntimeException("El género del usuario no puede estar vacío");
         }
 
 

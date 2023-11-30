@@ -2,9 +2,11 @@ package bo.ucb.edu.internship.api;
 
 import bo.ucb.edu.internship.bl.DocumentoElectronicoBL;
 import bo.ucb.edu.internship.entity.DocumentoElectronicoEntity;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,12 +30,12 @@ public class DocumentoElectronicoAPI {
     public ResponseEntity<Map<String, Object>> createDocumentoElectronico(@RequestBody Map<String, Object> request) {
         String tipoDocumento = (String) request.get("tipoDocumento");
         String nombreDocumento = (String) request.get("nombreDocumento");
-        String contenidoDocumento = (String) request.get("contenidoDocumento");
+        String URLDocumento = (String) request.get("URLDocumento");
         Integer formularioSolicitudID = (Integer) request.get("formularioSolicitudID");
 
         LOGGER.log(Level.INFO, "Inicio del método creando documento electrónico");
         try {
-            documentoElectronicoBL.createDocumentoElectronico(tipoDocumento, nombreDocumento, contenidoDocumento, formularioSolicitudID);
+            documentoElectronicoBL.createDocumentoElectronico(tipoDocumento, nombreDocumento, URLDocumento, formularioSolicitudID);
             Map<String, Object> response = new HashMap<>();
             response.put("message", "El documento electrónico se ha creado exitosamente");
             return new ResponseEntity<>(response, HttpStatus.OK);
@@ -85,12 +87,12 @@ public class DocumentoElectronicoAPI {
     public ResponseEntity<Map<String, Object>> updateDocumentoElectronico(@PathVariable("id") Integer id, @RequestBody Map<String, Object> request) {
         String tipoDocumento = (String) request.get("tipoDocumento");
         String nombreDocumento = (String) request.get("nombreDocumento");
-        String contenidoDocumento = (String) request.get("contenidoDocumento");
+        String URLDocumento = (String) request.get("URLDocumento");
         Integer formularioSolicitudID = (Integer) request.get("formularioSolicitudID");
 
         LOGGER.log(Level.INFO, "Inicio del método actualizando documento electrónico");
         try {
-            DocumentoElectronicoEntity documentoElectronico = documentoElectronicoBL.updateDocumentoElectronico(id, tipoDocumento, nombreDocumento, contenidoDocumento, formularioSolicitudID);
+            DocumentoElectronicoEntity documentoElectronico = documentoElectronicoBL.updateDocumentoElectronico(id, tipoDocumento, nombreDocumento, URLDocumento, formularioSolicitudID);
             Map<String, Object> response = new HashMap<>();
             response.put("message", "El documento electrónico se ha actualizado exitosamente");
             response.put("documentoElectronico", documentoElectronico);
@@ -122,4 +124,7 @@ public class DocumentoElectronicoAPI {
             LOGGER.log(Level.INFO, "Fin del método eliminando documento electrónico");
         }
     }
+
+
 }
+
