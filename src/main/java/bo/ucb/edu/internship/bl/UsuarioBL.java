@@ -32,22 +32,20 @@ public class UsuarioBL {
             throw new RuntimeException("La dirección del usuario no puede estar vacía");
         } else if (usuarioEntity.getCarnet() == null || usuarioEntity.getCarnet().isEmpty()) {
             throw new RuntimeException("El carné del usuario no puede estar vacío");
-        } 
-        // mensajede verificacion de telefono:
-        else if (!usuarioEntity.getPhone().matches("[0-9]{8}")) {
+        } else if (!usuarioEntity.getPhone().matches("[0-9]{8}")) {
             throw new RuntimeException("El telefono no es valido");
-        }
-        // mensaje de verificacion de correo electronico (que contega @ y .):
-        else if (!usuarioEntity.getEmail().matches("^(.+)@(.+)$")) {
+        } else if (!usuarioEntity.getEmail().matches("^(.+)@(.+)$")) {
             throw new RuntimeException("El correo no es valido");
-        }
-        // Mensaje de verificación de contrasena (8 caracteres) y que contenga al menos un numero y una letra:
-        else if (!usuarioEntity.getPassword().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
+        } else if (!usuarioEntity.getPassword().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
             throw new RuntimeException("La contraseña debe tener al menos un número y una letra");
         } else if (usuarioEntity.getBirth() == null || usuarioEntity.getBirth().toString().isEmpty()) {
             throw new RuntimeException("La fecha de nacimiento no puede estar vacía");
         } else if (usuarioEntity.getGender() == null || usuarioEntity.getGender().isEmpty()) {
             throw new RuntimeException("El género del usuario no puede estar vacío");
+        }
+
+        if (usuarioDAO.findByEmail(usuarioEntity.getEmail()).isPresent()) {
+            throw new RuntimeException("Ya existe un usuario con ese correo electrónico");
         }
 
         UsuarioEntity usuario = new UsuarioEntity();
@@ -60,11 +58,11 @@ public class UsuarioBL {
         usuario.setCarnet(usuarioEntity.getCarnet());
         usuario.setBirth(usuarioEntity.getBirth());
         usuario.setGender(usuarioEntity.getGender());
-    
+
         UsuarioEntity usuarioResult = usuarioDAO.save(usuario);
         return usuarioResult;
     }
-    
+
     // Método para obtener una lista de todos los usuarios registrados:
     public List<UsuarioEntity> getAllUsuarios() {
         return usuarioDAO.findAll();
@@ -72,10 +70,11 @@ public class UsuarioBL {
 
     // Método para obtener un usuario por su ID:
     public UsuarioEntity findUsuarioById(Integer id) {
-        return usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
+        return usuarioDAO.findById(id)
+                .orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
     }
 
-    //metodo para actualizar un usuario:
+    // metodo para actualizar un usuario:
     public UsuarioEntity updateUsuario(int id, UsuarioEntity usuarioEntity) {
         if (usuarioEntity.getName() == null || usuarioEntity.getName().isEmpty()) {
             throw new RuntimeException("El nombre del usuario no puede estar vacío");
@@ -97,8 +96,8 @@ public class UsuarioBL {
             throw new RuntimeException("El género del usuario no puede estar vacío");
         }
 
-
-        UsuarioEntity usuario = usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
+        UsuarioEntity usuario = usuarioDAO.findById(id)
+                .orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
         usuario.setName(usuarioEntity.getName());
         usuario.setLastName(usuarioEntity.getLastName());
         usuario.setEmail(usuarioEntity.getEmail());
@@ -108,14 +107,15 @@ public class UsuarioBL {
         usuario.setCarnet(usuarioEntity.getCarnet());
         usuario.setBirth(usuarioEntity.getBirth());
         usuario.setGender(usuarioEntity.getGender());
-        
+
         usuarioDAO.save(usuario);
         return usuario;
     }
 
-    //metodo para eliminar un usuario:
+    // metodo para eliminar un usuario:
     public UsuarioEntity deleteUsuario(Integer id) {
-        UsuarioEntity usuario = usuarioDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
+        UsuarioEntity usuario = usuarioDAO.findById(id)
+                .orElseThrow(() -> new RuntimeException("No se encontró ningún usuario con el ID proporcionado"));
         usuarioDAO.deleteById(id);
         return usuario;
     }
