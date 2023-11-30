@@ -30,7 +30,7 @@ CREATE TABLE DocumentoElectronico (
     DocumentoID SERIAL PRIMARY KEY,
     Tipo_documento varchar(30) NOT NULL,
     Nombre_documento varchar(250) NOT NULL,
-    URL_documento varchar(500) NOT NULL,
+    URL_documento varchar(1000) NOT NULL,
     FormularioSolicitud_SolicitudID int NOT NULL
 );
 
@@ -82,7 +82,7 @@ CREATE TABLE FormularioSolicitud (
     SolicitudID SERIAL PRIMARY KEY,
     Fecha_solicitud date  NOT NULL,
     Estado_solicitud boolean  NOT NULL,
-    Documento_adjunto varchar(255)  NOT NULL,
+    Documento_adjunto varchar(1000)  NOT NULL,
     Estudiante_EstudianteID int  NOT NULL
 );
 

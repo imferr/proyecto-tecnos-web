@@ -16,7 +16,7 @@ public class DocumentoElectronicoEntity {
     @Column(name = "Nombre_documento", nullable = false, length = 250)
     private String nombreDocumento;
 
-    @Column(name = "Url_documento", nullable = false, length = 500)
+    @Column(name = "Url_documento", nullable = false, length = 1000)
     private String URLDocumento;
 
     @ManyToOne
