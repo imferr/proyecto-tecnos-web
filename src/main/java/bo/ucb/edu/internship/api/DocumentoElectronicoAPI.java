@@ -1,18 +1,25 @@
 package bo.ucb.edu.internship.api;
 
-import bo.ucb.edu.internship.bl.DocumentoElectronicoBL;
-import bo.ucb.edu.internship.entity.DocumentoElectronicoEntity;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import bo.ucb.edu.internship.bl.DocumentoElectronicoBL;
+import bo.ucb.edu.internship.entity.DocumentoElectronicoEntity;
 
 @RestController
 @RequestMapping("/api/v1/documento-electronico")
@@ -82,6 +89,7 @@ public class DocumentoElectronicoAPI {
             LOGGER.log(Level.INFO, "Fin del método obteniendo documento electrónico por ID");
         }
     }
+  
 
     @PutMapping("/{id}")
     public ResponseEntity<Map<String, Object>> updateDocumentoElectronico(@PathVariable("id") Integer id, @RequestBody Map<String, Object> request) {
@@ -125,6 +133,4 @@ public class DocumentoElectronicoAPI {
         }
     }
 
-
 }
-

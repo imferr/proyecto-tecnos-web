@@ -37,9 +37,10 @@ public class FormularioSolicitudAPI {
 
         LOGGER.log(Level.INFO, "Inicio del método registrando formulario de solicitud");
         try {
-            formularioSolicitudBL.createFormularioSolicitud(requestDate, requestStatus, attachedDocument, studentId);
+            int formID = formularioSolicitudBL.createFormularioSolicitud(requestDate, requestStatus, attachedDocument, studentId).getRequestId();
             Map<String, Object> response = new HashMap<>();
             response.put("message", "El formulario de solicitud se ha registrado exitosamente");
+            response.put("formularioSolicitudId", formID);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             LOGGER.log(Level.WARNING, "Error al registrar formulario de solicitud", e);

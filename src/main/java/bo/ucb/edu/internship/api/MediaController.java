@@ -2,13 +2,11 @@ package bo.ucb.edu.internship.api;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,27 +24,21 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/v1/media")
 @AllArgsConstructor
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 
 public class MediaController {
 
     private final StorageService storageService;
-    private final HttpServletRequest request;   
-
-
+    
     @PostMapping("/upload")
-    public List<Map<String, String>> uploadFiles(@RequestParam("files") List<MultipartFile> files) {
-    List<Map<String, String>> fileUrls = new ArrayList<>();
-
-    for (MultipartFile file : files) {
-        String path = storageService.store(file);
-        String host = request.getRequestURL().toString().replace(request.getRequestURI(), "");
-        String url = ServletUriComponentsBuilder.fromHttpUrl(host).path("/media/").path(path).toUriString();
-        Map<String, String> fileUrl = Collections.singletonMap("url", url);
-        fileUrls.add(fileUrl);
-    }
-
-    return fileUrls;
+    public Map<String, String> uploadFile(@RequestParam("file") MultipartFile file) {
+        String filename = storageService.store(file);
+        String url = ServletUriComponentsBuilder.fromCurrentContextPath()
+            .path("/api/v1/media/")
+            .path(filename)
+            .toUriString();
+    
+        return Map.of("url", url);
     }
 
     @GetMapping("{filename:.+}")

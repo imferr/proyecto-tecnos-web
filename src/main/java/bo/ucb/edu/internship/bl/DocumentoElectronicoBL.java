@@ -1,11 +1,13 @@
 package bo.ucb.edu.internship.bl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+
 import bo.ucb.edu.internship.dao.DocumentoElectronicoDAO;
 import bo.ucb.edu.internship.dao.FormularioSolicitudDAO;
 import bo.ucb.edu.internship.entity.DocumentoElectronicoEntity;
 import bo.ucb.edu.internship.entity.FormularioSolicitudEntity;
-import java.util.List;
 
 @Service
 public class DocumentoElectronicoBL {
@@ -73,4 +75,6 @@ public class DocumentoElectronicoBL {
         DocumentoElectronicoEntity documentoElectronico = documentoElectronicoDAO.findById(id).orElseThrow(() -> new RuntimeException("No se encontró ningún documento electrónico con el ID proporcionado"));
         documentoElectronicoDAO.delete(documentoElectronico);
     }
+
+
 }

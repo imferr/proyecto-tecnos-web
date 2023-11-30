@@ -20,5 +20,5 @@ spring:
       max-request-size: 20MB
   
 media:
-  location: mediafiles
+  location: C:/Users/ERLAN/Desktop/ola
     

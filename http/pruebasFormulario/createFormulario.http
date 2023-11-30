@@ -5,6 +5,6 @@ Accept: application/json
 {
     "requestDate": "2022-05-11",
     "requestStatus": true,
-    "attachedDocument": "Documentacion.pdf, Documentacion2.pdf",
+    "attachedDocument": "aaaa.pdf, Documentacion2.pdf, aaaa",
     "studentId": 1
 }

@@ -5,5 +5,5 @@ import bo.ucb.edu.internship.entity.DocumentoElectronicoEntity;
 
 
 public interface DocumentoElectronicoDAO extends JpaRepository<DocumentoElectronicoEntity, Integer> {
-    
+
 }
